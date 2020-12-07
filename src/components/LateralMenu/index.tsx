@@ -10,33 +10,65 @@ import {
   List,
   ListItemIcon,
   ListItemText,
+  LogoItem,
+  Typography,
+  IconHome,
+  IconRegister,
 } from "./styles";
 
-const options = [
-  {
-    label: "Test1",
-    icon: <IconClose />,
-  },
-  {
-    label: "Test2",
-    icon: <IconOpen />,
-  },
-];
+import Logo from "~/assets/images/logo.svg";
 
-const renderList = () => {
-  return (
-    <List >
-      {options.map((option, index) => (
-        <ListItem selectedItem={index === 0} button key={index}>
-          <ListItemIcon>{option.icon}</ListItemIcon>
-          <ListItemText>{option.label}</ListItemText>
-        </ListItem>
-      ))}
-    </List>
-  );
-};
+import history from "~/service/history";
 
+import { useLocation } from "react-router-dom";
+import { useIntl } from "react-intl";
 export default function NavBar({ open, setOpen }: any) {
+  const { pathname } = useLocation();
+  const intl = useIntl();
+  const routes = [
+    {
+      label: intl.formatMessage({ id: "LateralMenu.route.home" }),
+      icon: <IconHome />,
+      path: "/home",
+    },
+    {
+      label: intl.formatMessage({ id: "LateralMenu.route.register" }),
+      icon: <IconRegister />,
+      path: "/register",
+    },
+  ];
+
+  const renderList = () => {
+    return (
+      <List>
+        <LogoItem className={"logo-item"}>
+          <ListItemIcon>
+            <img src={Logo} />
+          </ListItemIcon>
+          <ListItemText>
+            <Typography variant={"h4"}>{"Project"}</Typography>
+          </ListItemText>
+        </LogoItem>
+
+        {routes.map((route, index) => (
+          <ListItem
+            selectedItem={pathname === route.path}
+            button
+            key={index}
+            onClick={() => changePage(route)}
+          >
+            <ListItemIcon>{route.icon}</ListItemIcon>
+            <ListItemText>{route.label}</ListItemText>
+          </ListItem>
+        ))}
+      </List>
+    );
+  };
+
+  const changePage = (page: any) => {
+    history.push(page.path);
+  };
+
   return (
     <>
       <Drawer
