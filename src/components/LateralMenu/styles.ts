@@ -1,7 +1,7 @@
 import styled from "styled-components";
-// import { md } from "styles/global";
-import { FiChevronRight, FiChevronLeft } from "react-icons/all";
-
+import { defaultBar } from "~/styles/global";
+import { FiChevronRight, FiChevronLeft, FiHome, FiPlus } from "react-icons/all";
+import { Typography as MuiTypography } from '@material-ui/core'
 import {
   IconButton,
   Drawer as MuiDrawer,
@@ -23,12 +23,15 @@ export const Drawer = styled(MuiDrawer)`
 `;
 export const Content = styled.div`
   position: relative;
+  overflow:auto;
+  height:100%;
+  ${defaultBar(({ theme }: any) => theme.palette.divider, 6, 100)}
 `;
 export const List = styled(MuiList)`
   padding: 0px;
   overflow-x: hidden;
 `;
-export const ListItem = styled(MuiListItem)<{
+export const ListItem = styled(MuiListItem) <{
   selectedItem: Boolean,
 }>`
   color: ${({ theme, selectedItem }) =>
@@ -36,22 +39,35 @@ export const ListItem = styled(MuiListItem)<{
   .MuiTouchRipple-root {
     border-left: 4px solid
       ${({ theme, selectedItem }) =>
-        selectedItem ? theme.palette.primary.main : "transparent"};
+    selectedItem ? theme.palette.primary.main : "transparent"};
   }
   svg {
     color: ${({ theme, selectedItem }) =>
-      selectedItem ? theme.palette.primary.main : theme.palette.text.disabled};
+    selectedItem ? theme.palette.primary.main : theme.palette.text.disabled};
   }
-  padding: 10px 30px;
+  padding: 10px 35px;
 `;
 export const ListItemIcon = styled(MuiListItemIcon)`
-  min-width: 70px;
+  min-width: 58px;
   svg {
-    height: 1.8rem;
-    width: 1.8rem;
+    height: 1.5rem;
+    width: 1.5rem;
   }
+  img{
+    height: 80px;
+    margin-left: -23px;
+    margin-right:5px;
+}
+  
 `;
 export const ListItemText = styled(MuiListItemText)``;
+
+export const LogoItem = styled.div`
+  padding: 10px 30px 30px;
+  display: flex;
+  align-items: center;
+
+`;
 
 export const Icon = styled(IconButton)`
   padding: 0px;
@@ -74,5 +90,10 @@ export const Icon = styled(IconButton)`
       0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
   }
 `;
+
+export const Typography = styled(MuiTypography)``;
+
 export const IconOpen = styled(FiChevronRight)``;
 export const IconClose = styled(FiChevronLeft)``;
+export const IconHome = styled(FiHome)``;
+export const IconRegister = styled(FiPlus)``;

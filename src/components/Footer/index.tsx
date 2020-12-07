@@ -9,21 +9,25 @@ import {
   FacebookIcon,
   LinkedinIcon,
 } from "./styles";
+
+import { useIntl } from "react-intl";
 export default function Footer() {
+  const intl = useIntl();
+
   const year = new Date();
   const links = [
     {
-      label: "Ir para pagina no Linkedin",
+      label: intl.formatMessage({ id: "footer.text.goToPageOn" }) + "Linkedin",
       icon: <LinkedinIcon />,
       url: "https://www.linkedin.com/in/gabriel-monteiro-978aa8189/",
     },
     {
-      label: "Ir para pagina no facebook",
+      label: intl.formatMessage({ id: "footer.text.goToPageOn" }) + "Facebook",
       icon: <FacebookIcon />,
       url: "https://www.facebook.com/",
     },
     {
-      label: "Ir para pagina no GitHub",
+      label: intl.formatMessage({ id: "footer.text.goToPageOn" }) + "GitHub",
       icon: <GithubIcon />,
       url: "https://github.com/Gabriel-Monteiro7",
     },
@@ -32,7 +36,9 @@ export default function Footer() {
     <Container>
       <>
         <Row className={"follow"}>
-          <Typography>follow us:</Typography>
+          <Typography>
+            {intl.formatMessage({ id: "footer.text.followUs" })}
+          </Typography>
           <Row>
             {links.map((link: any, index) => (
               <IconButton color={"default"} key={index}>
@@ -45,7 +51,8 @@ export default function Footer() {
         </Row>
         <Row>
           <Typography variant={"subtitle1"}>
-            © {year.getFullYear()} Todos os direitos reservados.
+            © {year.getFullYear()}{" "}
+            {intl.formatMessage({ id: "footer.text.allRightsReserved" })}
           </Typography>
         </Row>
       </>

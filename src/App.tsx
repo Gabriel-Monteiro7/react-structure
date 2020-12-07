@@ -5,6 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import Routes from "./routes";
 import history from "./service/history";
 import { persistor, store } from "./store";
+import { GlobalStyle } from "./styles/global";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <PersistGate persistor={persistor}>
         <Router history={history}>
           <Routes />
+          <GlobalStyle />
         </Router>
       </PersistGate>
     </Provider>

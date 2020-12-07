@@ -9,6 +9,7 @@ export const Container = styled.div<{
   background: ${({ theme }) => theme.palette.background.default};
   padding-top: 20px;
   min-height: 100vh;
+ 
 `;
 export const Content = styled.div`
   padding: 40px 15px;
