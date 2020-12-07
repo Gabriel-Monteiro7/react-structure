@@ -10,7 +10,7 @@ export function* signIn({ payload }: any) {
     let response = yield call(service.post, "/jwt/create", {
       email,
       password,
-    });
+    });    
     const { access } = response.data;
     response = yield call(service.get, "/users/me/", {
       headers: { Authorization: `Bearer ${access}` },
@@ -19,6 +19,7 @@ export function* signIn({ payload }: any) {
     history.push("/home");
   } catch (erro) {
     // toast.error("Erro na autenticação");
+    
     yield put(singFailure());
   }
 }
