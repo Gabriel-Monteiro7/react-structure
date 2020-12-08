@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
-import { Container, Button, Form } from "./styles";
-import TextField from "~/components/Inputs/TextField";
+import React, { useRef, useState } from "react";
+import { Container, Button, Form, Content } from "./styles";
+import InputDefault from "~/components/Inputs/InputDefault";
+import InputFile from "~/components/Inputs/InputFile";
 import { useDispatch, useSelector } from "react-redux";
 import { singInRequest } from "~/store/modules/auth/actions";
 import { registerRequest } from "~/store/modules/user/actions";
@@ -10,29 +11,26 @@ export default function FormLogin({
   schema,
   fields = [],
   children,
-  button,
-  setIndexTab,
   initialValues,
+  button,
 }: any) {
   const dispatch = useDispatch();
   const intl = useIntl();
   const formikRef = useRef(null);
-
-  let { loading } = useSelector((state: any) => state.auth);
+  const [file, setFile] = useState();
   function handleSubmit(values: any) {
-    values = {
-      ...values,
-      email: values.email || values.email_register,
-      password: values.password || values.password_register,
-    };
-    if (children) {
-      dispatch(singInRequest(values.email, values.password));
-    } else {
-      dispatch(
-        registerRequest(values.email, values.password, values.displayName)
-      );
-      setIndexTab(1);
-    }
+    // values = {
+    //   ...values,
+    //   email: values.email || values.email_register,
+    //   password: values.password || values.password_register,
+    // };
+    // if (children) {
+    //   dispatch(singInRequest(values.email, values.password));
+    // } else {
+    //   dispatch(
+    //     registerRequest(values.email, values.password, values.displayName)
+    //   );
+    // }
   }
 
   return (
@@ -46,7 +44,7 @@ export default function FormLogin({
         <Form>
           {fields.map((input: any, index: any) => {
             return (
-              <TextField
+              <InputDefault
                 key={index}
                 handleChange={handleChange}
                 value={values[input.name]}
@@ -54,14 +52,12 @@ export default function FormLogin({
               />
             );
           })}
-          {children}
-          <Button type="submit" disabled={!isValid || isSubmitting}>
-            {loading
-              ? "Carregando..."
-              : intl.formatMessage({
-                  id: button,
-                })}
-          </Button>
+          <InputFile setFile={setFile} />
+          <Content>
+            <Button type="submit" disabled={!isValid || isSubmitting}>
+              {intl.formatMessage({ id: button })}
+            </Button>
+          </Content>
         </Form>
       )}
     </Container>

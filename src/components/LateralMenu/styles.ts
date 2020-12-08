@@ -54,16 +54,14 @@ export const ListItemIcon = styled(MuiListItemIcon)`
     width: 1.5rem;
   }
   img{
-    height: 80px;
-    margin-left: -23px;
-    margin-right:5px;
+    height: 40px;
 }
   
 `;
 export const ListItemText = styled(MuiListItemText)``;
 
 export const LogoItem = styled.div`
-  padding: 10px 30px 30px;
+  padding: 20px 35px 30px;
   display: flex;
   align-items: center;
 

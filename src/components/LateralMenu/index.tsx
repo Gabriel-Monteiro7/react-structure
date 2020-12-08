@@ -16,7 +16,7 @@ import {
   IconRegister,
 } from "./styles";
 
-import Logo from "~/assets/images/logo.svg";
+import Logo from "~/assets/images/astronaut.svg";
 
 import history from "~/service/history";
 
@@ -46,7 +46,7 @@ export default function NavBar({ open, setOpen }: any) {
             <img src={Logo} />
           </ListItemIcon>
           <ListItemText>
-            <Typography variant={"h4"}>{"Project"}</Typography>
+            <Typography variant={"h4"} color={"primary"}>{"Project"}</Typography>
           </ListItemText>
         </LogoItem>
 
