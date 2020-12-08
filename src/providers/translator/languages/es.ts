@@ -11,6 +11,7 @@ export default {
   "footer.text.followUs": "Síguenos: ",
   "footer.text.allRightsReserved": "Todos los derechos reservados.",
   "footer.text.goToPageOn": "Ir a la página en ",
+  "login.dontRegister": "¿No tienes antecedentes?",
   "login.button.register": "Registrar",
   "login.button.login": "Iniciar sesión",
   "login.field.email": "Introduzca un correo electrónico válido",
@@ -18,5 +19,10 @@ export default {
   "login.field.min8": "Mínimo 8 caracteres",
   "LateralMenu.route.home": "Dashboard",
   "LateralMenu.route.register": "Registrar",
-
+  "inputFile.drop.text": "Arrastra el archivo aquí...",
+  "inputFile.notSuported.text": "Archivo no soportado",
+  "inputFile.dropHere.text": "Suelta el archivo aquí",
+  "inputFile.button.delete": "Eliminar",
+  "btn.icon.attach": "Adjuntar Archivo",
+  "attachment.archive.outSize": "Ha superado el límite máximo de 2 MB. Prueba con otro archivo",
 };

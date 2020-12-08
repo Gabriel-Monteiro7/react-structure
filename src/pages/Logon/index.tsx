@@ -22,12 +22,10 @@ import OptionMenu from "~/components/OptionMenu ";
 import { schema, fields, initialValues } from "./data";
 export default function Logon() {
   const options = ["login.button.register", "login.button.login"];
-  const [indexTab, setIndexTab] = useState(0);
+  const [indexTab, setIndexTab] = useState(1);
   const intl = useIntl();
   const dispatch = useDispatch();
-  const { themeDefault } = useSelector((state: any) => state.root);
 
-  // const [optionSelected, setOptionSelected] = useState("Cadastrar");
   const handleChangeTabs = (event: any, newIndexTab: number) => {
     setIndexTab(newIndexTab);
   };
@@ -56,17 +54,18 @@ export default function Logon() {
                   fields={fields[index]}
                   initialValues={initialValues[index]}
                   button={option}
+                  setIndexTab={setIndexTab}
                 >
                   {index === 1 && (
                     <NewUser
                       variant={"subtitle1"}
                       color="primary"
-                      title={"Não possui cadastro?"}
+                      title={intl.formatMessage({ id: "login.dontRegister" })}
                       onClick={() => {
-                        setIndexTab(1);
+                        setIndexTab(0);
                       }}
                     >
-                      Não possui cadastro?
+                      {intl.formatMessage({ id: "login.dontRegister" })}
                     </NewUser>
                   )}
                 </Form>

@@ -1,12 +1,12 @@
 import styled, { css } from "styled-components";
-import { FaEye, FaEyeSlash } from "react-icons/all";
 import {
   InputLabel as MuiInputLabel,
-  InputAdornment as MuiInputAdornment,
   FormControl as MuiFormControl,
   Input as MuiInput,
   FormHelperText as MuiFormHelperText,
 } from "@material-ui/core";
+import { md } from '~/styles/global'
+
 const icon = css`
   font-size: 20px !important;
   font-weight: 500 !important;
@@ -21,19 +21,22 @@ const icon = css`
 export const FormControl = styled(MuiFormControl) <{
   width: Number
 }>`
-  margin:5px 0px;
+  margin:5px auto;
   min-height:70px;
-  
+  width:${({ width }) => width + '%'};
+  @media (max-width: ${md}px) {
+    width: 100% !important;
+  }
 `;
 
 export const Input = styled(MuiInput) <{
   type: String
-}>``;
-
-export const InputAdornment = styled(MuiInputAdornment) <{
-  password: String
 }>`
-  cursor: ${({ password }: any) => password};
+background: ${({ theme }) => theme.palette.background.default};
+border-radius: 5px;
+padding: 5px;
+margin-top: 25px !important;
+min-height: 42px;
 `;
 
 export const FormHelperText = styled(MuiFormHelperText)`
@@ -41,11 +44,4 @@ export const FormHelperText = styled(MuiFormHelperText)`
 
 export const InputLabel = styled(MuiInputLabel)`
 font-weight:500;
-`;
-
-export const IconeEye = styled(FaEye)`
-  ${icon}
-`;
-export const IconeEyeSlash = styled(FaEyeSlash)`
-  ${icon}
 `;
