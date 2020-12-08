@@ -11,6 +11,7 @@ export default {
   "footer.text.followUs": "Follow Us: ",
   "footer.text.allRightsReserved": "All rights reserved.",
   "footer.text.goToPageOn": "Go to page on the ",
+  "login.dontRegister": "You don't have a record?",
   "login.button.register": "Register",
   "login.button.login": "Login",
   "login.field.email": "Enter a valid email",
@@ -18,4 +19,10 @@ export default {
   "login.field.min8": "Minimum 8 characters",
   "LateralMenu.route.home": "Dashboard",
   "LateralMenu.route.register": "Register",
+  "inputFile.drop.text": "Drag the file here...",
+  "inputFile.notSuported.text": "Unsupported file",
+  "inputFile.dropHere.text": "Drop the file here",
+  "inputFile.button.delete": "Delete",
+  "btn.icon.attach": "Attach File",
+  "attachment.archive.outSize": "You have exceeded the maximum limit of 2mb. Try another file",
 };
