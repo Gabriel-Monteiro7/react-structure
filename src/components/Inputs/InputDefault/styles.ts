@@ -22,7 +22,7 @@ export const FormControl = styled(MuiFormControl) <{
   width: Number
 }>`
   margin:5px auto;
-  min-height:70px;
+  min-height:89px;
   width:${({ width }) => width + '%'};
   @media (max-width: ${md}px) {
     width: 100% !important;

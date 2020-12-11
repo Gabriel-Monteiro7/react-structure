@@ -23,9 +23,9 @@ export const fields = [
   },
 ];
 
-export const initialValues = [
-  {
-    name: "",
-    description: ""
-  },
-];
+export const initialValues =
+{
+  name: "",
+  description: ""
+}
+  ;

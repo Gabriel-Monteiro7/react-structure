@@ -41,10 +41,13 @@ export default function File({ setFile }: any) {
     setUploadedFiles({});
     setFile(null);
   }
+  console.log(uploadedFiles);
+  
   return (
     <Content>
       {uploadedFiles?.id === undefined && (
         <Dropzone
+          multiple
           maxSize={2097152} //2mb
           accept={"image/*,application/pdf"}
           onDropAccepted={(value: any) => {
