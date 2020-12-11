@@ -25,7 +25,7 @@ export default function TextField({
     >
       {label && <InputLabel shrink>{label}</InputLabel>}
 
-      <Input {...field} {...props} onChange={handleChange} type={"text"} />
+      <Input {...field} {...props} onChange={handleChange} type={"text"} disableUnderline />
       {meta.touched && meta.error ? (
         <FormHelperText>
           {intl.formatMessage({ id: meta.error })}

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Container, Button, Form } from "./styles";
 import TextField from "~/components/Inputs/TextField";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +19,12 @@ export default function FormLogin({
   const formikRef = useRef(null);
 
   let { loading } = useSelector((state: any) => state.auth);
+  console.log(loading);
+
+  useEffect(() => {
+    console.log(formikRef);
+  }, [loading]);
+
   function handleSubmit(values: any) {
     values = {
       ...values,
@@ -55,7 +61,7 @@ export default function FormLogin({
             );
           })}
           {children}
-          <Button type="submit" disabled={!isValid || isSubmitting}>
+          <Button type="submit" disabled={!isValid || loading}>
             {loading
               ? "Carregando..."
               : intl.formatMessage({
