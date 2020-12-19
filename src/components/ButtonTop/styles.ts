@@ -1,28 +1,25 @@
 import styled from "styled-components";
 import { sm } from "~/styles/global";
-
-export default styled.a`
-  transition: 0.1s ease-in-out;
-  font-size: 45px;
+import { IconButton, Tooltip as MuiTooltip } from "@material-ui/core";
+import { FaChevronUp } from "react-icons/all";
+export const Container = styled(IconButton)`
+  transition: 0.5s ease-in-out opacity;
   right: 20px;
   bottom: 20px;
   position: fixed;
   cursor: pointer;
-  svg {
-    transition: 0.5s ease-in-out opacity;
-    color: white;
-    border-radius: 50%;
-    background: var(--color-primary);
-    padding: 15px;
-    opacity: 0.8;
-    &:hover {
-      opacity: 1;
-    }
+  background: ${({ theme }) => theme.palette.primary.main};
+  box-shadow: ${({ theme }) => theme.shadows[3]};
+  opacity: 0.8;
+  &:hover {
+    background: ${({ theme }) => theme.palette.primary.main};
+    opacity: 1;
   }
-  @media (max-width: ${sm}px) {
-    font-size: 40px;
-    svg {
-      padding: 13px;
-    }
-  }
+  height: 2.6rem;
+  width: 2.6rem;
 `;
+export const Icon = styled(FaChevronUp)`
+  color: white;
+  font-size: 0.8rem;
+`;
+export const Tooltip = styled(MuiTooltip)``;

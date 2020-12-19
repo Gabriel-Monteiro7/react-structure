@@ -35,6 +35,6 @@ export const defaultBar = (theme: any, width: any = 10, borderRadius: any = 0) =
 
 export const GlobalStyle = createGlobalStyle`
   html,body,#root{
-    ${defaultBar("#0000001f", 8, 1)}
+    ${defaultBar("#0000001f", 10, 1)}
   }
 `;
