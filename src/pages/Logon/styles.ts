@@ -33,13 +33,13 @@ export const Tabs = styled(MuiTabs).attrs({
 })`
   width:80%;
   .MuiTabs-indicator{
-    background-color:${({ theme }) => theme.palette.secondary["A200"]} !important;
+    background-color:${({ theme }) => theme.palette.secondary["A400"]} !important;
 
   }
 `;
 export const Tab = styled(MuiTab)`
 &.Mui-selected{
-  color: ${({ theme }) => theme.palette.secondary["A200"]} !important;
+  color: ${({ theme }) => theme.palette.secondary["A400"]} !important;
 }
 color: ${({ theme }) => theme.palette.primary.main} !important;
 

@@ -9,35 +9,41 @@ import {
   ContainerCard,
   Card,
   Image,
+  Date,
+  Tooltip,
+  TitleCard,
+  DescriptionCard,
+  ContainerInformation,
+  ButtonEdit,
+  IconEdit,
 } from "./styles";
 import { useIntl } from "react-intl";
 function Home() {
   const intl = useIntl();
+  const cards = [{}, {}, {}, {}];
+  const renderCard = () => (
+    <ContainerCard>
+      <Card>
+        <Tooltip aria-label={"21/10/2029"} title={"21/10/2029"}>
+          <Date>{"21/10/2029"}</Date>
+        </Tooltip>
+        <Image />
+        <ContainerInformation>
+          <TitleCard>Cachorros</TitleCard>
+          <DescriptionCard>
+            msdmfkmsdok fmskdmfk smdfkm sokdmfksdmfkomsodkf
+          </DescriptionCard>
+        </ContainerInformation>
+        <ButtonEdit >
+          <IconEdit />
+        </ButtonEdit>
+      </Card>
+    </ContainerCard>
+  );
   return (
     <Container>
       <Title>{intl.formatMessage({ id: "homepage.title" })}</Title>
-      <ContainerCards>
-        <ContainerCard>
-          <Card>
-            <Image />
-          </Card>
-        </ContainerCard>
-        <ContainerCard>
-          <Card>
-            <Image />
-          </Card>
-        </ContainerCard>
-        <ContainerCard>
-          <Card>
-            <Image />
-          </Card>
-        </ContainerCard>
-        <ContainerCard>
-          <Card>
-            <Image />
-          </Card>
-        </ContainerCard>
-      </ContainerCards>
+      <ContainerCards>{cards.map(() => renderCard())}</ContainerCards>
     </Container>
   );
 }
