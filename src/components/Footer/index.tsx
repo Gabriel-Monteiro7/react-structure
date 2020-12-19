@@ -8,6 +8,7 @@ import {
   GithubIcon,
   FacebookIcon,
   LinkedinIcon,
+  Tooltip,
 } from "./styles";
 
 import { useIntl } from "react-intl";
@@ -41,11 +42,11 @@ export default function Footer() {
           </Typography>
           <Row>
             {links.map((link: any, index) => (
-              <IconButton color={"default"} key={index}>
-                <Link href={link.url} title={link.label}>
-                  {link.icon}
-                </Link>
-              </IconButton>
+              <Tooltip title={link.label}>
+                <IconButton color={"default"} key={index}>
+                  <Link href={link.url}>{link.icon}</Link>
+                </IconButton>
+              </Tooltip>
             ))}
           </Row>
         </Row>

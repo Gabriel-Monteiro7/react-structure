@@ -32,7 +32,7 @@ export const FormControl = styled(MuiFormControl) <{
 export const Input = styled(MuiInput) <{
   type: String
 }>`
-background: ${({ theme }) => theme.palette.background.default};
+background: ${({ theme }) => theme.palette.background.default+99};
 border-radius: 5px;
 padding: 5px;
 margin-top: 25px !important;
