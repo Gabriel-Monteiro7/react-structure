@@ -16,8 +16,13 @@ import {
   ContainerInformation,
   ButtonEdit,
   IconEdit,
+  EmptyContainer,
+  EmptyTitle,
+  ButtonAdd,
 } from "./styles";
 import { useIntl } from "react-intl";
+import EmptyImage from "~/assets/images/empty.png";
+import history from "~/service/history";
 function Home() {
   const intl = useIntl();
   const cards = [{}, {}, {}, {}];
@@ -34,7 +39,7 @@ function Home() {
             msdmfkmsdok fmskdmfk smdfkm sokdmfksdmfkomsodkf
           </DescriptionCard>
         </ContainerInformation>
-        <ButtonEdit >
+        <ButtonEdit>
           <IconEdit />
         </ButtonEdit>
       </Card>
@@ -43,7 +48,17 @@ function Home() {
   return (
     <Container>
       <Title>{intl.formatMessage({ id: "homepage.title" })}</Title>
-      <ContainerCards>{cards.map(() => renderCard())}</ContainerCards>
+      {cards.length === 0 ? (
+        <EmptyContainer>
+          <img src={EmptyImage} />
+          <EmptyTitle>Nenhum padrão definido!</EmptyTitle>
+          <ButtonAdd onClick={() => history.push("register")}>
+            Adicionar novo padrão
+          </ButtonAdd>
+        </EmptyContainer>
+      ) : (
+        <ContainerCards>{cards.map(() => renderCard())}</ContainerCards>
+      )}
     </Container>
   );
 }
