@@ -19,11 +19,10 @@ export default function FormLogin({
   const formikRef = useRef(null);
 
   let { loading } = useSelector((state: any) => state.auth);
-  console.log(loading);
 
-  useEffect(() => {
-    console.log(formikRef);
-  }, [loading]);
+  // useEffect(() => {
+  //   console.log(formikRef);
+  // }, [loading]);
 
   function handleSubmit(values: any) {
     values = {

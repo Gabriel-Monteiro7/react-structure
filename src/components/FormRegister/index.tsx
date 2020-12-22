@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useMemo } from "react";
 import { Container, Button, Form, Content } from "./styles";
 import InputDefault from "~/components/Inputs/InputDefault";
 import InputFile from "~/components/Inputs/InputFile";
@@ -17,10 +17,10 @@ export default function FormLogin({
   const dispatch = useDispatch();
   const intl = useIntl();
   const formikRef = useRef(null);
+
   const [file, setFile] = useState(null);
+
   function handleSubmit(values: any) {
-    console.log('');
-    
     // values = {
     //   ...values,
     //   email: values.email || values.email_register,
@@ -33,11 +33,8 @@ export default function FormLogin({
     //     registerRequest(values.email, values.password, values.displayName)
     //   );
     // }
-    console.log(formikRef);
-
   }
-  console.log(formikRef);
-  
+
   return (
     <Container
       validationSchema={schema}
@@ -59,10 +56,7 @@ export default function FormLogin({
           })}
           <InputFile setFile={setFile} />
           <Content>
-            <Button
-              type="submit"
-              disabled={(!isValid || isSubmitting) || !file}
-            >
+            <Button type="submit" disabled={!isValid || isSubmitting || !file}>
               {intl.formatMessage({ id: button })}
             </Button>
           </Content>

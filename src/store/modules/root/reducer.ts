@@ -18,7 +18,6 @@ export default function root(state = INITIAL_STATE, action: any) {
       case "@root/GET_LANGUAGES_REQUEST":
         break;
       case "@root/GET_LANGUAGES_SUCCESS":
-        console.log(action.payload.languages);
         draft.languages = action.payload.languages;
         break;
       default:
