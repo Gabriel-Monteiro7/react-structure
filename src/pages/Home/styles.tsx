@@ -5,6 +5,7 @@ import {
   Card as MuiCard,
   Tooltip as MuiTooltip,
   IconButton,
+  Button,
 } from "@material-ui/core";
 import { FiEdit2 } from "react-icons/all";
 export const Container = styled.div``;
@@ -25,7 +26,7 @@ export const ContainerCard = styled(MuiGrid).attrs({
   sm: 6,
   item: true,
 })`
-  min-height: 25rem;
+  min-height: 26rem;
 `;
 export const Image = styled.div`
   background-color: ${({ theme }) => theme.palette.grey["A400"] + 90};
@@ -79,4 +80,33 @@ export const IconEdit = styled(FiEdit2)``;
 
 export const Title = styled(MuiTypography).attrs({ variant: "h4" })`
   font-weight: 600;
+`;
+
+export const EmptyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+  align-items: center;
+  justify-content: center;
+  img {
+    height: 250px;
+  }
+`;
+
+export const EmptyTitle = styled(MuiTypography).attrs({
+  variant: "h6",
+  color: "textSecondary",
+})`
+  margin: 10px 0px;
+`;
+
+export const ButtonAdd = styled(Button).attrs({
+  variant: "outlined",
+  color: "primary",
+})`
+  border-radius: 20px;
+  font-size: 0.8rem;
+  height: 42px;
+  width: 220px;
+  margin-top: 20px;
 `;

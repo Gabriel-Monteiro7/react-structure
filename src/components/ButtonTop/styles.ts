@@ -15,8 +15,8 @@ export const Container = styled(IconButton)`
     background: ${({ theme }) => theme.palette.primary.main};
     opacity: 1;
   }
-  height: 2.6rem;
-  width: 2.6rem;
+  height: 2.7rem;
+  width: 2.7rem;
 `;
 export const Icon = styled(FaChevronUp)`
   color: white;

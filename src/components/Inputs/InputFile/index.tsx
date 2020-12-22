@@ -41,7 +41,6 @@ export default function File({ setFile }: any) {
     setUploadedFiles({});
     setFile(null);
   }
-  console.log(uploadedFiles);
   
   return (
     <Content>
