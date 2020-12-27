@@ -6,7 +6,7 @@ import {
   FiPaperclip as MuiAttachFile,
   FiX as MuiError
 } from 'react-icons/all'
-import { Typography } from "@material-ui/core";
+import { Typography,Tooltip as MuiTooltip } from "@material-ui/core";
 import { md, lg } from '~/styles/global'
 
 export const Container = styled.div`
@@ -158,4 +158,7 @@ export const Preview = styled.div<{
   background-size: cover;
   background-position: 50% 50%;
   margin-right: 10px;
+`;
+export const Tooltip = styled(MuiTooltip)`
+
 `;

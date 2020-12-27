@@ -13,6 +13,8 @@ import OptionMenu from "~/components/OptionMenu ";
 
 import { useSelector } from "react-redux";
 
+import { formatText } from "~/utils";
+
 export default function NavBar({ open, setOpen }: any) {
   const { username } = useSelector((state: any) => state.user.profile);
   return (
@@ -24,7 +26,7 @@ export default function NavBar({ open, setOpen }: any) {
             <Button color="inherit" className={"profile"} onClick={action}>
               <ContainerButton>
                 <img src={Avatar} />
-                <TitleButton variant={"subtitle1"}>{username}</TitleButton>
+                {formatText(username,TitleButton,12)}
               </ContainerButton>
               <ArrowBack />
             </Button>

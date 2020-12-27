@@ -12,6 +12,7 @@ import {
   ListItemText,
   LogoItem,
   Typography,
+  Tooltip,
   IconHome,
   IconRegister,
 } from "./styles";
@@ -27,12 +28,12 @@ export default function NavBar({ open, setOpen }: any) {
   const intl = useIntl();
   const routes = [
     {
-      label: intl.formatMessage({ id: "LateralMenu.route.home" }),
+      label: intl.formatMessage({ id: "lateralMenu.route.home" }),
       icon: <IconHome />,
       path: "/home",
     },
     {
-      label: intl.formatMessage({ id: "LateralMenu.route.register" }),
+      label: intl.formatMessage({ id: "lateralMenu.route.register" }),
       icon: <IconRegister />,
       path: "/register",
     },
@@ -41,25 +42,30 @@ export default function NavBar({ open, setOpen }: any) {
   const renderList = () => {
     return (
       <List>
-        <LogoItem className={"logo-item"}>
-          <ListItemIcon>
-            <img src={Logo} />
-          </ListItemIcon>
-          <ListItemText>
-            <Typography variant={"h4"} color={"primary"}>{"Project"}</Typography>
-          </ListItemText>
-        </LogoItem>
-
+        <Tooltip title={"Project"} aria-label={"Project"}>
+          <LogoItem className={"logo-item"}>
+            <ListItemIcon>
+              <img src={Logo} />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography variant={"h4"} color={"primary"}>
+                {"Project"}
+              </Typography>
+            </ListItemText>
+          </LogoItem>
+        </Tooltip>
         {routes.map((route, index) => (
-          <ListItem
-            selectedItem={pathname === route.path}
-            button
-            key={index}
-            onClick={() => changePage(route)}
-          >
-            <ListItemIcon>{route.icon}</ListItemIcon>
-            <ListItemText>{route.label}</ListItemText>
-          </ListItem>
+          <Tooltip title={route.label} aria-label={route.label}>
+            <ListItem
+              selectedItem={pathname === route.path}
+              button
+              key={index}
+              onClick={() => changePage(route)}
+            >
+              <ListItemIcon>{route.icon}</ListItemIcon>
+              <ListItemText>{route.label}</ListItemText>
+            </ListItem>
+          </Tooltip>
         ))}
       </List>
     );
@@ -81,13 +87,23 @@ export default function NavBar({ open, setOpen }: any) {
           keepMounted: true, // Better open performance on mobile.
         }}
       >
-        <Icon
-          onClick={() => {
-            setOpen(!open);
-          }}
+        <Tooltip
+          title={intl.formatMessage({
+            id: `lateralMenu.button.${!open ? "open" : "close"}`,
+          })}
+          aria-label={intl.formatMessage({
+            id: `lateralMenu.button.${!open ? "open" : "close"}`,
+          })}
         >
-          {open ? <IconClose /> : <IconOpen />}
-        </Icon>
+          <Icon
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            {open ? <IconClose /> : <IconOpen />}
+          </Icon>
+        </Tooltip>
+
         <Content>{renderList()}</Content>
       </Drawer>
     </>
