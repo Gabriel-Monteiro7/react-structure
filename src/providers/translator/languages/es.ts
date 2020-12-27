@@ -1,6 +1,8 @@
 export default {
   "homepage.title": "Página de inicio",
   "homepage.subscribeHeader": "Subscribe Now",
+  "homepage.card.edit": "Para editar",
+  "button.top": "Subir",
   "optionMenu.button.logout": "Salir",
   "optionMenu.button.darkTheme": "Desactivar el modo oscuro",
   "optionMenu.button.lightTheme": "Habilitar el modo oscuro",
@@ -17,12 +19,16 @@ export default {
   "login.field.email": "Introduzca un correo electrónico válido",
   "login.field.required": "Campo obligatorio",
   "login.field.min8": "Mínimo 8 caracteres",
+  "LateralMenu.button.open": "Abierto",
+  "LateralMenu.button.close": "Cerca",
   "LateralMenu.route.home": "Dashboard",
   "LateralMenu.route.register": "Registrar",
   "inputFile.drop.text": "Arrastra el archivo aquí...",
   "inputFile.notSuported.text": "Archivo no soportado",
   "inputFile.dropHere.text": "Suelta el archivo aquí",
   "inputFile.button.delete": "Eliminar",
+  "inputFile.button.preview": "Visualizar",
   "btn.icon.attach": "Adjuntar Archivo",
-  "attachment.archive.outSize": "Ha superado el límite máximo de 2 MB. Prueba con otro archivo",
+  "attachment.archive.outSize":
+    "Ha superado el límite máximo de 2 MB. Prueba con otro archivo",
 };
