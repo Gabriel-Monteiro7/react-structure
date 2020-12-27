@@ -1,6 +1,8 @@
 export default {
   "homepage.title": "Página Inicial",
   "homepage.subscribeHeader": "Subscribe Now",
+  "homepage.card.edit": "Editar",
+  "button.top": "Ir para cima",
   "optionMenu.button.logout": "Sair",
   "optionMenu.button.darkTheme": "Desativar modo escuro",
   "optionMenu.button.lightTheme": "Ativar modo escuro",
@@ -17,12 +19,15 @@ export default {
   "login.field.email": "Insira um email válido",
   "login.field.required": "Campo obrigatório",
   "login.field.min8": "Mínimo 8 caracteres",
-  "LateralMenu.route.home": "Dashboard",
-  "LateralMenu.route.register": "Cadastrar",
+  "lateralMenu.button.open": "Abrir",
+  "lateralMenu.button.close": "Fechar",
+  "lateralMenu.route.home": "Dashboard",
+  "lateralMenu.route.register": "Cadastrar",
   "inputFile.drop.text": "Arraste o arquivo aqui...",
   "inputFile.notSuported.text": "Arquivo não suportado",
   "inputFile.dropHere.text": "Solte o arquivo aqui",
   "inputFile.button.delete": "Excluir",
+  "inputFile.button.preview": "Visualizar",
   "btn.icon.attach": "Anexar Arquivo",
   "attachment.archive.outSize": "Você excedeu o limite maximo de 2mb. Tente outro arquivo"
 };

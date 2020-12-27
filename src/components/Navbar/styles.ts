@@ -20,14 +20,12 @@ import {
   MenuItem as MuiMenuItem,
 } from "@material-ui/core";
 
-export const AppBar = styled(MuiAppBar) <{
-  open: Boolean,
+export const AppBar = styled(MuiAppBar)<{
+  open: Boolean
 }>`
   transition: ease-in-out width 0.3s;
   padding: 0px 10px;
 `;
-
-
 
 export const Button = styled(MuiButton)`
   height: 50px;
@@ -46,20 +44,21 @@ export const Toolbar = styled(MuiToolbar)`
   padding: 0;
 `;
 
-export const TitleButton = styled(MuiTypography)`
-  text-overflow: ellipsis;
+export const TitleButton = styled(MuiTypography).attrs({
+  variant: "subtitle1",
+})`
+  /* text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: hidden; */
   font-weight: 600;
   margin: auto 15px;
 `;
 export const ArrowBack = styled(FiChevronDown)`
   font-size: 1.2rem;
-  width:10%;
-
+  width: 10%;
 `;
 export const ContainerButton = styled.div`
-  display:flex;
-  align-items:center;
-  width:90%;
+  display: flex;
+  align-items: center;
+  width: 90%;
 `;

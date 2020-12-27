@@ -1,6 +1,8 @@
 export default {
   "homepage.title": "Home page",
   "homepage.subscribeHeader": "Subscribe Now",
+  "homepage.card.edit": "To edit",
+  "button.top": "Go up",
   "optionMenu.button.logout": "Logout",
   "optionMenu.button.darkTheme": "Disable dark mode",
   "optionMenu.button.lightTheme": "Enable dark mode",
@@ -17,12 +19,16 @@ export default {
   "login.field.email": "Enter a valid email",
   "login.field.required": "Required field",
   "login.field.min8": "Minimum 8 characters",
+  "LateralMenu.button.open": "Open",
+  "LateralMenu.button.close": "Close",
   "LateralMenu.route.home": "Dashboard",
   "LateralMenu.route.register": "Register",
   "inputFile.drop.text": "Drag the file here...",
   "inputFile.notSuported.text": "Unsupported file",
   "inputFile.dropHere.text": "Drop the file here",
   "inputFile.button.delete": "Delete",
+  "inputFile.button.preview": "Visualize",
   "btn.icon.attach": "Attach File",
-  "attachment.archive.outSize": "You have exceeded the maximum limit of 2mb. Try another file",
+  "attachment.archive.outSize":
+    "You have exceeded the maximum limit of 2mb. Try another file",
 };

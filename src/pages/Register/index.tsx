@@ -32,7 +32,7 @@ function Register() {
         fields={fields}
         initialValues={initialValues}
         button={options[0]}
-      ></Form>
+      />
     </Container>
   );
 }

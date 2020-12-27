@@ -1,6 +1,6 @@
-import React from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { changeTheme, changeLanguage } from "~/store/modules/root/actions";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getRequest } from "~/store/modules/training/actions";
 // import { Typography, Switch } from "@material-ui/core";
 import {
   Container,
@@ -25,27 +25,37 @@ import EmptyImage from "~/assets/images/empty.png";
 
 import { useIntl } from "react-intl";
 
-import { formatDateDefault } from "~/utils";
+import { formatDateDefault, formatText } from "~/utils";
 import history from "~/service/history";
 function Home() {
   const intl = useIntl();
-  const cards = [{}, {}, {}, {}];
-  const renderCard = () => (
-    <ContainerCard>
+  const dispatch = useDispatch();
+  const { trainings } = useSelector((state: any) => state.training);
+  useEffect(() => {
+    dispatch(getRequest());
+  }, []);
+  const renderCard = (training: any) => (
+    <ContainerCard zeroMinWidth>
       <Card>
-        <Tooltip aria-label={"21/10/2029"} title={"21/10/2029"}>
-          <Date>{formatDateDefault("2029-05-01T10:31:18.837Z")}</Date>
+        <Tooltip
+          aria-label={formatDateDefault(training.created_at)}
+          title={formatDateDefault(training.created_at)}
+        >
+          <Date>{formatDateDefault(training.created_at)}</Date>
         </Tooltip>
         <Image />
         <ContainerInformation>
-          <TitleCard>Padrão</TitleCard>
-          <DescriptionCard>
-            msdmfkmsdok fmskdmfk smdfkm sokdmfksdmfkomsodkf
-          </DescriptionCard>
+          <TitleCard>{training.name}</TitleCard>
+          {formatText(training.description, DescriptionCard, 80)}
         </ContainerInformation>
-        <ButtonEdit onClick={handleEdit}>
-          <IconEdit />
-        </ButtonEdit>
+        <Tooltip
+          aria-label={intl.formatMessage({ id: "homepage.card.edit" })}
+          title={intl.formatMessage({ id: "homepage.card.edit" })}
+        >
+          <ButtonEdit onClick={handleEdit}>
+            <IconEdit />
+          </ButtonEdit>
+        </Tooltip>
       </Card>
     </ContainerCard>
   );
@@ -61,7 +71,7 @@ function Home() {
   return (
     <Container>
       <Title>{intl.formatMessage({ id: "homepage.title" })}</Title>
-      {cards.length === 0 ? (
+      {trainings.length === 0 ? (
         <EmptyContainer>
           <img src={EmptyImage} />
           <EmptyTitle>Nenhum padrão definido!</EmptyTitle>
@@ -70,7 +80,9 @@ function Home() {
           </ButtonAdd>
         </EmptyContainer>
       ) : (
-        <ContainerCards>{cards.map(() => renderCard())}</ContainerCards>
+        <ContainerCards zeroMinWidth>
+          {trainings.map((training: any) => renderCard(training))}
+        </ContainerCards>
       )}
     </Container>
   );

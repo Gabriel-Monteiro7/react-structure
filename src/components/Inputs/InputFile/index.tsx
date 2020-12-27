@@ -16,6 +16,7 @@ import {
   Error,
   Link,
   AttachFile,
+  Tooltip,
 } from "./styles";
 import { useIntl } from "react-intl";
 
@@ -41,7 +42,7 @@ export default function File({ setFile }: any) {
     setUploadedFiles({});
     setFile(null);
   }
-  
+
   return (
     <Content>
       {uploadedFiles?.id === undefined && (
@@ -112,15 +113,23 @@ export default function File({ setFile }: any) {
             </ContainerLeft>
           </FileInfo>
           <ContainerRight>
-            {uploadedFiles.preview && (
-              <a
-                href={uploadedFiles.preview}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Link />
-              </a>
-            )}
+            <Tooltip
+              title={intl.formatMessage({ id: "inputFile.button.preview" })}
+              aria-label={intl.formatMessage({
+                id: "inputFile.button.preview",
+              })}
+            >
+              {uploadedFiles.preview && (
+                <a
+                  href={uploadedFiles.preview}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Link />
+                </a>
+              )}
+            </Tooltip>
+
             {uploadedFiles.uploaded && <CheckCircle />}
             {uploadedFiles.error && <Error />}
           </ContainerRight>
