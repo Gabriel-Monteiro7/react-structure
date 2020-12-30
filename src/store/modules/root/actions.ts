@@ -21,3 +21,19 @@ export function getLanguagesSuccess(languages: String) {
     payload: { languages },
   };
 }
+export function showSnackBar(type: String) {
+  return {
+    type: "@root/SHOW_SNACK_BAR",
+    payload: { type },
+  };
+}
+export function hidenSnackBar() {
+  return {
+    type: "@root/HIDEN_SNACK_BAR",
+  };
+}
+export function processSnackbarQueue() {
+  return {
+    type: "@root/PROCESS_SNACKBAR_QUEUE",
+  };
+}

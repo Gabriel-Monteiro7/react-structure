@@ -1,5 +1,9 @@
-import { takeLatest, all, call, put } from "redux-saga/effects";
-import { getLanguagesSuccess } from "./actions";
+import { takeLatest, all, call, put, select } from "redux-saga/effects";
+import {
+  getLanguagesSuccess,
+  hidenSnackBar,
+  processSnackbarQueue,
+} from "./actions";
 import service from "~/service/service";
 export function* getLanguages({ payload }: any) {
   try {
@@ -9,4 +13,17 @@ export function* getLanguages({ payload }: any) {
     console.log(erro);
   }
 }
-export default all([takeLatest("@root/GET_LANGUAGES_REQUEST", getLanguages)]);
+
+function* onShowSnackbar() {
+  const open = yield select((state) => state.root.snackBar.open);    
+  if (open) {
+    yield put(hidenSnackBar());
+  } else {
+    yield put(processSnackbarQueue());
+  }
+}
+
+export default all([
+  takeLatest("@root/GET_LANGUAGES_REQUEST", getLanguages),
+  takeLatest("@root/SHOW_SNACK_BAR", onShowSnackbar),
+]);

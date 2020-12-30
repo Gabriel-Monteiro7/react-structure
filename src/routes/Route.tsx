@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 
 import DefaultLayout from "~/layouts/default";
 import AuthLayout from "~/layouts/auth";
+import SnackBar from "~/components/SnackBar";
 
 import { Theme } from "~/theme";
 import { Translator } from "~/providers/translator";
@@ -27,14 +28,17 @@ function RouteWrapper({
   const Layout = signed ? DefaultLayout : AuthLayout;
 
   return (
-    <Route
-      {...rest}
-      render={(props) => (
-        <Layout>
-          <Component {...props} />
-        </Layout>
-      )}
-    />
+    <>
+      <Route
+        {...rest}
+        render={(props) => (
+          <Layout>
+            <Component {...props} />
+          </Layout>
+        )}
+      />
+      <SnackBar />
+    </>
   );
 }
 
