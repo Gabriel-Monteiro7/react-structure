@@ -9,19 +9,20 @@ import {
   deleteSuccess,
 } from "./actions";
 
-import { showSnackBar } from "~/store/modules/root/actions";
+import { showSnackbar } from "~/store/modules/root/actions";
 
 export function* insert({ payload }: any) {
   const { data } = payload;
   const { token }: any = yield select((state: any) => state.auth);
   try {
+    yield put(showSnackbar("info"));
     let response = yield call(service.post, `training/`, data, {
       headers: { Authorization: `Bearer ${token}` },
     });
     yield put(insertSuccess(response));
     history.goBack();
   } catch (erro) {
-    // toast.error("Erro na listagem");
+    yield put(showSnackbar("error"));
   }
 }
 
@@ -30,39 +31,41 @@ export function* update({ payload }: any) {
   const { token }: any = yield select((state: any) => state.auth);
 
   try {
+    yield put(showSnackbar("info"));
     let response = yield call(service.put, `training/${id}/`, data, {
       headers: { Authorization: `Bearer ${token}` },
     });
     yield put(updateSuccess(response.data, id));
+    yield put(showSnackbar("success"));
     history.goBack();
   } catch (erro) {
-    // toast.error("Erro na listagem");
+    yield put(showSnackbar("error"));
   }
 }
 export function* deletetraining({ payload }: any) {
   let { id } = payload;
   const { token }: any = yield select((state: any) => state.auth);
   try {
+    yield put(showSnackbar("info"));
     yield call(service.delete, `training/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     yield put(deleteSuccess(id));
+    yield put(showSnackbar("success"));
   } catch (erro) {
-    // toast.error("Erro na listagem");
+    yield put(showSnackbar("error"));
   }
 }
 
 function* get() {
   const { token }: any = yield select((state: any) => state.auth);
-
   try {
     let response = yield call(service.get, "training/", {
       headers: { Authorization: `Bearer ${token}` },
     });
     yield put(getSuccess(response.data));
   } catch (erro) {
-    // toast.error("Erro na listagem");
-    yield put(showSnackBar("error"));
+    yield put(showSnackbar("error"));
   }
 }
 

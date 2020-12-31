@@ -12,7 +12,7 @@ export const Container = styled(Snackbar).attrs({
     horizontal: "right",
   },
   autoHideDuration: 2000,
-
+  resumeHideDuration: 2000,
 })``;
 export const Content = styled(Alert).attrs({ variant: "filled" })`
   align-items: center;
@@ -28,6 +28,11 @@ export const Content = styled(Alert).attrs({ variant: "filled" })`
     padding-right: 9px;
     margin-right: 9px;
   }
+  .MuiAlert-message {
+    text-align: initial;
+    width: 100%;
+  }
+  min-width: 280px;
 `;
 export const Typography = styled(MuiTypography)``;
 export const CircularProgress = styled(MuiCircularProgress).attrs({ size: 20 })`
