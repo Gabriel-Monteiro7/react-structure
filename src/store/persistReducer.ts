@@ -6,7 +6,7 @@ export default (reducers: any) => {
     {
       key: "react-structure",
       storage,
-      whitelist: ["auth", "user", "root"],
+      whitelist: ["auth", "user", "root","training"],
     },
     reducers
   );

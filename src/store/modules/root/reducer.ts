@@ -29,10 +29,7 @@ export default function root(state = INITIAL_STATE, action: any) {
         break;
       }
       case "@root/SHOW_SNACK_BAR": {
-        draft.snackBar.remainder = [
-          ...draft.snackBar.remainder,
-          { type: action.payload.type },
-        ];
+        draft.snackBar.remainder.push({ type: action.payload.type });
         break;
       }
       case "@root/HIDEN_SNACK_BAR": {
@@ -43,12 +40,7 @@ export default function root(state = INITIAL_STATE, action: any) {
         if (state.snackBar.remainder.length > 0) {
           const current = draft.snackBar.remainder[0];
           const remainder = draft.snackBar.remainder.slice(1);
-          draft.snackBar = {
-            ...draft.snackBar,
-            open: true,
-            remainder,
-            current,
-          };
+          draft.snackBar = { open: true, remainder, current };
         }
         break;
       }
