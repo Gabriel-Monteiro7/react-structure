@@ -1,4 +1,4 @@
-import { takeLatest, put, all, call, select } from "redux-saga/effects";
+import { takeLatest, put, all, call, select, delay } from "redux-saga/effects";
 
 import history from "~/service/history";
 import service from "~/service/service";
@@ -9,8 +9,11 @@ import {
   deleteSuccess,
 } from "./actions";
 
+import { showSnackBar } from "~/store/modules/root/actions";
+
 export function* insert({ payload }: any) {
-  let { token, data } = payload;
+  const { data } = payload;
+  const { token }: any = yield select((state: any) => state.auth);
   try {
     let response = yield call(service.post, `training/`, data, {
       headers: { Authorization: `Bearer ${token}` },
@@ -23,7 +26,9 @@ export function* insert({ payload }: any) {
 }
 
 export function* update({ payload }: any) {
-  let { token, data, id } = payload;
+  const { data, id } = payload;
+  const { token }: any = yield select((state: any) => state.auth);
+
   try {
     let response = yield call(service.put, `training/${id}/`, data, {
       headers: { Authorization: `Bearer ${token}` },
@@ -35,7 +40,8 @@ export function* update({ payload }: any) {
   }
 }
 export function* deletetraining({ payload }: any) {
-  let { token, id } = payload;
+  let { id } = payload;
+  const { token }: any = yield select((state: any) => state.auth);
   try {
     yield call(service.delete, `training/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -47,19 +53,16 @@ export function* deletetraining({ payload }: any) {
 }
 
 function* get() {
-  let { token }: any = yield select((state: any) => state.auth);
-  console.log(token);
-  
+  const { token }: any = yield select((state: any) => state.auth);
+
   try {
     let response = yield call(service.get, "training/", {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log(response);
-    
     yield put(getSuccess(response.data));
   } catch (erro) {
-    
     // toast.error("Erro na listagem");
+    yield put(showSnackBar("error"));
   }
 }
 

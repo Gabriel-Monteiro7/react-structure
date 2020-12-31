@@ -1,7 +1,7 @@
-export function insertRequest(data: any, token: string) {
+export function insertRequest(data: any) {
   return {
     type: "@training/INSERT_REQUEST",
-    payload: { data, token },
+    payload: { data },
   };
 }
 
@@ -18,10 +18,10 @@ export function selectedSuccess(data: any) {
     payload: { data },
   };
 }
-export function updateRequest(data: any, token: string, id: string) {
+export function updateRequest(data: any, id: string) {
   return {
     type: "@training/UPDATE_REQUEST",
-    payload: { data, token, id },
+    payload: { data, id },
   };
 }
 
@@ -46,16 +46,16 @@ export function getSuccess(data: any) {
   };
 }
 
-export function deleteRequest(token: string, id: string) {
-  return {
+export function deleteRequest(id: string) {
+  return {                                                
     type: "@training/DELETE_REQUEST",
-    payload: { token, id },
+    payload: { id },
   };
 }
 
 export function deleteSuccess(id: string) {
-  return {
+  return {                      
     type: "@training/DELETE_SUCCESS",
-    payload: { id },
+    payload: { id },                                              
   };
 }

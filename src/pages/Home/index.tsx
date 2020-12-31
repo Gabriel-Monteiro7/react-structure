@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getRequest } from "~/store/modules/training/actions";
-// import { Typography, Switch } from "@material-ui/core";
+
 import {
   Container,
   Title,
@@ -27,10 +27,11 @@ import { useIntl } from "react-intl";
 
 import { formatDateDefault, formatText } from "~/utils";
 import history from "~/service/history";
-function Home() {
+function Home({ openSnackbar }: any) {
   const intl = useIntl();
   const dispatch = useDispatch();
   const { trainings } = useSelector((state: any) => state.training);
+  
   useEffect(() => {
     dispatch(getRequest());
   }, []);

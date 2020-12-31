@@ -1,4 +1,4 @@
-import { takeLatest, all, call, put, select } from "redux-saga/effects";
+import { takeLatest, all, call, put, select, delay } from "redux-saga/effects";
 import {
   getLanguagesSuccess,
   hidenSnackBar,
@@ -15,10 +15,8 @@ export function* getLanguages({ payload }: any) {
 }
 
 function* onShowSnackbar() {
-  const open = yield select((state) => state.root.snackBar.open);    
-  if (open) {
-    yield put(hidenSnackBar());
-  } else {
+  const open = yield select((state) => state.root.snackBar.open);
+  if (!open) {
     yield put(processSnackbarQueue());
   }
 }

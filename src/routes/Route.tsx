@@ -10,6 +10,9 @@ import { Translator } from "~/providers/translator";
 
 import { store } from "~/store";
 import history from "~/service/history";
+
+
+
 function RouteWrapper({
   component: Component,
   isPrivate = false,
