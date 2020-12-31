@@ -4,12 +4,15 @@ import {
   Typography as MuiTypography,
   CircularProgress as MuiCircularProgress,
 } from "@material-ui/core";
+
 import { Alert } from "@material-ui/lab";
 export const Container = styled(Snackbar).attrs({
   anchorOrigin: {
     vertical: "top",
     horizontal: "right",
   },
+  autoHideDuration: 2000,
+
 })``;
 export const Content = styled(Alert).attrs({ variant: "filled" })`
   align-items: center;

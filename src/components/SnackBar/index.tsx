@@ -21,12 +21,13 @@ const SnackBar: React.FC = () => {
   const handleExited = () => {
     dispatch(processSnackbarQueue());
   };
+
   return (
     <Container open={open} onClose={handleClose} onExit={handleExited}>
       <Content
-        severity={current.type}
-        color={current.type}
-        icon={current.type === "info" ? <CircularProgress /> : null}
+        severity={current?.type}
+        color={current?.type}
+        icon={current?.type === "info" ? <CircularProgress /> : null}
       >
         <Typography variant={"body2"}>
           Testsd sd f sdfs d fsdf sdfsdf sd fsdfsdfsdf
