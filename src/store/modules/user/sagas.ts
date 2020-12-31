@@ -1,7 +1,8 @@
-import { takeLatest, all, call } from "redux-saga/effects";
+import { takeLatest, all, call,put } from "redux-saga/effects";
 
-// import { toast } from "react-toastify";
 import service from "~/service/service";
+import { showSnackbar } from "~/store/modules/root/actions";
+
 export function* register({ payload }: any) {
   try {
     const { password, email, username } = payload;
@@ -13,8 +14,8 @@ export function* register({ payload }: any) {
       first_name: "",
       last_name: "",
     });
-  } catch (erro) {
-    // toast.error("Usuário ja cadastrado com este email ou senha muito fraca");
+  } catch (erro) {    
+    yield put(showSnackbar({type:"error",message:"snackbar.erro.login.registerUSer"}));
   }
 }
 export default all([takeLatest("@user/REGISTER_REQUEST", register)]);

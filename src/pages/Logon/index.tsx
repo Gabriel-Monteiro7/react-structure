@@ -12,7 +12,6 @@ import {
   ArrowBack,
 } from "./styles";
 
-import { changeTheme } from "~/store/modules/root/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useIntl } from "react-intl";
 
@@ -21,6 +20,7 @@ import OptionMenu from "~/components/OptionMenu ";
 
 import { schema, fields, initialValues } from "./data";
 export default function Logon() {
+
   const options = ["login.button.register", "login.button.login"];
   const [indexTab, setIndexTab] = useState(1);
   const intl = useIntl();
