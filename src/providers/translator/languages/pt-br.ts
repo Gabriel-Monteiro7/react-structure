@@ -29,5 +29,10 @@ export default {
   "inputFile.button.delete": "Excluir",
   "inputFile.button.preview": "Visualizar",
   "btn.icon.attach": "Anexar Arquivo",
-  "attachment.archive.outSize": "Você excedeu o limite maximo de 2mb. Tente outro arquivo"
+  "attachment.archive.outSize":
+    "Você excedeu o limite maximo de 2mb. Tente outro arquivo",
+  "snackbar.erro.login.noCredentials":
+    "Nenhuma conta ativa encontrada com as credenciais fornecidas",
+  "snackbar.erro.login.registerUSer": "Erro ao cadastrar o usuário",
+  "snackbar.loading.message": "Aguarde um momento...",
 };

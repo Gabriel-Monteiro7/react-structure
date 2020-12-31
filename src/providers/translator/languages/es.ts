@@ -31,4 +31,8 @@ export default {
   "btn.icon.attach": "Adjuntar Archivo",
   "attachment.archive.outSize":
     "Ha superado el límite máximo de 2 MB. Prueba con otro archivo",
+  "snackbar.erro.login.noCredentials":
+    "No se encontraron cuentas activas con las credenciales proporcionadas",
+  "snackbar.erro.login.registerUSer": "Error al dar de alta al usuario",
+  "snackbar.loading.message": "Espera un momento...",
 };

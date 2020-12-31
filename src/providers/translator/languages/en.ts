@@ -29,5 +29,10 @@ export default {
   "inputFile.button.delete": "Delete",
   "inputFile.button.preview": "Visualize",
   "btn.icon.attach": "Attach File",
-  "attachment.archive.outSize":"You have exceeded the maximum limit of 2mb. Try another file",
+  "attachment.archive.outSize":
+    "You have exceeded the maximum limit of 2mb. Try another file",
+  "snackbar.erro.login.noCredentials":
+    "No active accounts found with the supplied credentials",
+  "snackbar.erro.login.registerUSer": "Error when registering the user",
+  "snackbar.loading.message": "Wait a moment...",
 };
