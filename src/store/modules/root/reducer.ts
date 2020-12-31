@@ -4,9 +4,13 @@ const INITIAL_STATE = {
   themeDefault: true,
   language: "en",
   languages: "",
-  snackBar: {
+  snackbar: {
     open: false,
-    current: { type: null },
+    current: {
+      type: undefined,
+      message: " ",
+      loading: false,
+    },
     remainder: [],
   },
 };
@@ -29,18 +33,18 @@ export default function root(state = INITIAL_STATE, action: any) {
         break;
       }
       case "@root/SHOW_SNACK_BAR": {
-        draft.snackBar.remainder.push({ type: action.payload.type });
+        draft.snackbar.remainder.push(action.payload.snackbar);
         break;
       }
       case "@root/HIDEN_SNACK_BAR": {
-        draft.snackBar.open = false;
+        draft.snackbar.open = false;
         break;
       }
       case "@root/PROCESS_SNACKBAR_QUEUE": {
-        if (state.snackBar.remainder.length > 0) {
-          const current = draft.snackBar.remainder[0];
-          const remainder = draft.snackBar.remainder.slice(1);
-          draft.snackBar = { open: true, remainder, current };
+        if (state.snackbar.remainder.length > 0) {
+          const current = draft.snackbar.remainder[0];
+          const remainder = draft.snackbar.remainder.slice(1);
+          draft.snackbar = { open: true, remainder, current };
         }
         break;
       }
