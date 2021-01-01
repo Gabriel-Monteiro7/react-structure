@@ -1,8 +1,12 @@
-import { takeLatest, put, all, call } from "redux-saga/effects";
+import { takeLatest, put, all, call, delay } from "redux-saga/effects";
 
 import history from "~/service/history";
 import service from "~/service/service";
-import { showSnackbar } from "~/store/modules/root/actions";
+import {
+  showSnackbar,
+  hidenSnackbar,
+  processSnackbarQueue,
+} from "~/store/modules/root/actions";
 
 import { singInSuccess, singFailure } from "./actions";
 
@@ -11,6 +15,7 @@ export function* signIn({ payload }: any) {
     showSnackbar({
       type: "info",
       message: "snackbar.loading.message",
+      loading: true,
     })
   );
   try {
@@ -24,11 +29,12 @@ export function* signIn({ payload }: any) {
       headers: { Authorization: `Bearer ${access}` },
     });
     yield put(singInSuccess(access, response.data));
+    yield put(processSnackbarQueue());
     history.push("/home");
   } catch (error) {
+    yield put(processSnackbarQueue());
     const message = "snackbar.erro.login.noCredentials";
-    yield put(showSnackbar({ type: "error", message }));
-    yield put(showSnackbar({ type: "success", message }));
+    // yield put(showSnackbar({ type: "error", message }));
     yield put(singFailure());
   }
 }

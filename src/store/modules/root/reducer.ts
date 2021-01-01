@@ -45,7 +45,10 @@ export default function root(state = INITIAL_STATE, action: any) {
           const current = draft.snackbar.remainder[0];
           const remainder = draft.snackbar.remainder.slice(1);
           draft.snackbar = { open: true, remainder, current };
+        } else {
+          draft.snackbar.current.loading = false;
         }
+
         break;
       }
       default:
