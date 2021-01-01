@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Container, Content, Typography, CircularProgress } from "./styles";
 
@@ -18,7 +18,7 @@ const SnackBar: React.FC = () => {
   const dispatch = useDispatch();
   const intl = useIntl();
   const handleClose = (event: any, reason: any) => {
-    if (reason === "clickaway") {
+    if (reason === "clickaway" || current?.loading) {
       return;
     }
     dispatch(hidenSnackbar());
@@ -26,7 +26,6 @@ const SnackBar: React.FC = () => {
   const handleExited = () => {
     dispatch(processSnackbarQueue());
   };
-
   return (
     <Container
       open={open}
