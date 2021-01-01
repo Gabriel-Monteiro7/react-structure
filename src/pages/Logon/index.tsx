@@ -20,7 +20,9 @@ import OptionMenu from "~/components/OptionMenu ";
 
 import { schema, fields, initialValues } from "./data";
 export default function Logon() {
-
+  const { snackbar } = useSelector((state: any) => state.root);
+  console.log(snackbar);
+  
   const options = ["login.button.register", "login.button.login"];
   const [indexTab, setIndexTab] = useState(1);
   const intl = useIntl();
