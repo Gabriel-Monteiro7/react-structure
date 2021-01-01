@@ -9,9 +9,7 @@ export function* getLanguages({ payload }: any) {
   try {
     const response = yield call(service.get, `/collections/get/texts`);
     yield put(getLanguagesSuccess(response.data.entries[1].language));
-  } catch (erro) {
-    console.log(erro);
-  }
+  } catch (erro) {}
 }
 
 function* onShowSnackbar() {
