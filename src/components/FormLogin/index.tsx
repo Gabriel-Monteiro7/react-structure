@@ -20,10 +20,6 @@ export default function FormLogin({
 
   let { loading } = useSelector((state: any) => state.auth);
 
-  // useEffect(() => {
-  //   console.log(formikRef);
-  // }, [loading]);
-
   function handleSubmit(values: any) {
     values = {
       ...values,
