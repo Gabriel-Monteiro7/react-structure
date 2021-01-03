@@ -13,11 +13,9 @@ export function* getLanguages({ payload }: any) {
 }
 
 function* onShowSnackbar() {
-  const open = yield select((state) => state.root.snackbar.open);
-  yield delay(200);
-  if (open) {
-    yield put(hidenSnackbar());
-  } else {
+  const { open, current } = yield select((state) => state.root.snackbar);    
+  if (!open || current.loading) {
+    yield delay(1);
     yield put(processSnackbarQueue());
   }
 }

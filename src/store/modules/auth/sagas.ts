@@ -4,21 +4,20 @@ import history from "~/service/history";
 import service from "~/service/service";
 import {
   showSnackbar,
-  hidenSnackbar,
   processSnackbarQueue,
 } from "~/store/modules/root/actions";
 
 import { singInSuccess, singFailure } from "./actions";
 
 export function* signIn({ payload }: any) {
-  yield put(
-    showSnackbar({
-      type: "info",
-      message: "snackbar.loading.message",
-      loading: true,
-    })
-  );
   try {
+    yield put(
+      showSnackbar({
+        type: "info",
+        message: "snackbar.loading.message",
+        loading: true,
+      })
+    );
     const { email, password } = payload;
     let response = yield call(service.post, "/jwt/create", {
       email,
@@ -32,9 +31,8 @@ export function* signIn({ payload }: any) {
     yield put(processSnackbarQueue());
     history.push("/home");
   } catch (error) {
-    yield put(processSnackbarQueue());
     const message = "snackbar.erro.login.noCredentials";
-    // yield put(showSnackbar({ type: "error", message }));
+    yield put(showSnackbar({ type: "error", message }));
     yield put(singFailure());
   }
 }

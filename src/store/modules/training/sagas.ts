@@ -15,14 +15,28 @@ export function* insert({ payload }: any) {
   const { data } = payload;
   const { token }: any = yield select((state: any) => state.auth);
   try {
-    yield put(showSnackbar("info"));
+    yield put(
+      showSnackbar({
+        type: "info",
+        message: "snackbar.loading.message",
+        loading: true,
+      })
+    );
     let response = yield call(service.post, `training/`, data, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    yield put(insertSuccess(response));
+    yield put(insertSuccess(response.data));
+    yield put(
+      showSnackbar({
+        type: "success",
+        message: "snackbar.success.create.training",
+      })
+    );
     history.goBack();
   } catch (erro) {
-    yield put(showSnackbar("error"));
+    yield put(
+      showSnackbar({ type: "error", message: "snackbar.error.request" })
+    );
   }
 }
 
@@ -31,15 +45,28 @@ export function* update({ payload }: any) {
   const { token }: any = yield select((state: any) => state.auth);
 
   try {
-    yield put(showSnackbar("info"));
+    yield put(
+      showSnackbar({
+        type: "info",
+        message: "snackbar.loading.message",
+        loading: true,
+      })
+    );
     let response = yield call(service.put, `training/${id}/`, data, {
       headers: { Authorization: `Bearer ${token}` },
     });
     yield put(updateSuccess(response.data, id));
-    yield put(showSnackbar("success"));
+    yield put(
+      showSnackbar({
+        type: "success",
+        message: "snackbar.success.edited.training",
+      })
+    );
     history.goBack();
   } catch (erro) {
-    yield put(showSnackbar("error"));
+    yield put(
+      showSnackbar({ type: "error", message: "snackbar.error.request" })
+    );
   }
 }
 export function* deletetraining({ payload }: any) {
@@ -53,7 +80,9 @@ export function* deletetraining({ payload }: any) {
     yield put(deleteSuccess(id));
     yield put(showSnackbar("success"));
   } catch (erro) {
-    yield put(showSnackbar("error"));
+    yield put(
+      showSnackbar({ type: "error", message: "snackbar.error.request" })
+    );
   }
 }
 
@@ -65,7 +94,9 @@ function* get() {
     });
     yield put(getSuccess(response.data));
   } catch (erro) {
-    yield put(showSnackbar("error"));
+    yield put(
+      showSnackbar({ type: "error", message: "snackbar.error.request" })
+    );
   }
 }
 

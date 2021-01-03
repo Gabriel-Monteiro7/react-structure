@@ -6,11 +6,7 @@ const INITIAL_STATE = {
   languages: "",
   snackbar: {
     open: false,
-    current: {
-      type: undefined,
-      message: " ",
-      loading: false,
-    },
+    current: null,
     remainder: [],
   },
 };
@@ -32,7 +28,7 @@ export default function root(state = INITIAL_STATE, action: any) {
         draft.languages = action.payload.languages;
         break;
       }
-      case "@root/SHOW_SNACK_BAR": {
+      case "@root/SHOW_SNACK_BAR": {        
         draft.snackbar.remainder.push(action.payload.snackbar);
         break;
       }
@@ -46,11 +42,15 @@ export default function root(state = INITIAL_STATE, action: any) {
           const remainder = draft.snackbar.remainder.slice(1);
           draft.snackbar = { open: true, remainder, current };
         } else {
-          draft.snackbar.current.loading = false;
+          draft.snackbar = INITIAL_STATE.snackbar;
         }
-
         break;
       }
+      case "@root/SNACKBAR_RESTART": {
+        draft.snackbar = INITIAL_STATE.snackbar;
+        break;
+      }
+
       default:
     }
   });

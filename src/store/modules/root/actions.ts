@@ -37,3 +37,9 @@ export function processSnackbarQueue() {
     type: "@root/PROCESS_SNACKBAR_QUEUE",
   };
 }
+
+export function SnackbarRestart() {
+  return {
+    type: "@root/SNACKBAR_RESTART",
+  };
+}
