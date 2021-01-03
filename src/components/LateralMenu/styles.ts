@@ -26,14 +26,14 @@ export const Content = styled.div`
   position: relative;
   overflow: auto;
   height: 100%;
-  ${defaultBar(({ theme }: any) => theme.palette.divider, 6, 100)}
+  ${defaultBar(({ theme }: any) => theme.palette.grey[600], 6, 100)}
 `;
 export const List = styled(MuiList)`
   padding: 0px;
   overflow-x: hidden;
 `;
 export const ListItem = styled(MuiListItem)<{
-  selectedItem: Boolean;
+  selectedItem: Boolean
 }>`
   color: ${({ theme, selectedItem }) =>
     selectedItem ? theme.palette.primary.main : theme.palette.text.disabled};

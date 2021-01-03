@@ -31,42 +31,45 @@ function Home({ openSnackbar }: any) {
   const intl = useIntl();
   const dispatch = useDispatch();
   const { trainings } = useSelector((state: any) => state.training);
-  
+
   useEffect(() => {
     dispatch(getRequest());
   }, []);
-  const renderCard = (training: any) => (
-    <ContainerCard zeroMinWidth>
-      <Card>
-        <Tooltip
-          aria-label={formatDateDefault(training.created_at)}
-          title={formatDateDefault(training.created_at)}
-        >
-          <Date>{formatDateDefault(training.created_at)}</Date>
-        </Tooltip>
-        <Image />
-        <ContainerInformation>
-          <TitleCard>{training.name}</TitleCard>
-          {formatText(training.description, DescriptionCard, 80)}
-        </ContainerInformation>
-        <Tooltip
-          aria-label={intl.formatMessage({ id: "homepage.card.edit" })}
-          title={intl.formatMessage({ id: "homepage.card.edit" })}
-        >
-          <ButtonEdit onClick={handleEdit}>
-            <IconEdit />
-          </ButtonEdit>
-        </Tooltip>
-      </Card>
-    </ContainerCard>
-  );
 
-  const handleEdit = () => {
-    history.push("register", {
-      name: "Cachorro",
-      description: "sdfsdfsd",
-      image: "teste",
-    });
+  const renderCard = (training: any) => {
+    const image = `url(${
+      process.env.REACT_APP_API_URL_BASE + training.original_image
+    })`;
+    return (
+      <ContainerCard zeroMinWidth>
+        <Card>
+          <Tooltip
+            aria-label={formatDateDefault(training.created_at)}
+            title={formatDateDefault(training.created_at)}
+          >
+            <Date>{formatDateDefault(training.created_at)}</Date>
+          </Tooltip>
+
+          <Image image={image} />
+          <ContainerInformation>
+            <TitleCard>{training.name}</TitleCard>
+            {formatText(training.description, DescriptionCard, 80)}
+          </ContainerInformation>
+          <Tooltip
+            aria-label={intl.formatMessage({ id: "homepage.card.edit" })}
+            title={intl.formatMessage({ id: "homepage.card.edit" })}
+          >
+            <ButtonEdit onClick={() => handleEdit(training)}>
+              <IconEdit />
+            </ButtonEdit>
+          </Tooltip>
+        </Card>
+      </ContainerCard>
+    );
+  };
+
+  const handleEdit = (training: any) => {
+    history.push("register", training);
   };
 
   return (
@@ -75,9 +78,11 @@ function Home({ openSnackbar }: any) {
       {trainings.length === 0 ? (
         <EmptyContainer>
           <img src={EmptyImage} />
-          <EmptyTitle>Nenhum padrão definido!</EmptyTitle>
+          <EmptyTitle>
+            {intl.formatMessage({ id: "homepage.emptyPage" })}
+          </EmptyTitle>
           <ButtonAdd onClick={() => history.push("register")}>
-            Adicionar novo padrão
+            {intl.formatMessage({ id: "homepage.button.add.training" })}
           </ButtonAdd>
         </EmptyContainer>
       ) : (

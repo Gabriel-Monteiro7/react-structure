@@ -20,6 +20,9 @@ import OptionMenu from "~/components/OptionMenu ";
 
 import { schema, fields, initialValues } from "./data";
 export default function Logon() {
+  // const { snackbar } = useSelector((state: any) => state.root);
+  // console.log(snackbar);
+
   const options = ["login.button.register", "login.button.login"];
   const [indexTab, setIndexTab] = useState(1);
   const intl = useIntl();
@@ -33,8 +36,9 @@ export default function Logon() {
     <Container>
       <Content>
         <Tabs value={indexTab} onChange={handleChangeTabs}>
-          {options.map((option) => (
+          {options.map((option, index) => (
             <Tab
+              key={index}
               label={intl.formatMessage({
                 id: option,
               })}

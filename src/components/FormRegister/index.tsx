@@ -3,8 +3,7 @@ import { Container, Button, Form, Content } from "./styles";
 import InputDefault from "~/components/Inputs/InputDefault";
 import InputFile from "~/components/Inputs/InputFile";
 import { useDispatch, useSelector } from "react-redux";
-import { singInRequest } from "~/store/modules/auth/actions";
-import { registerRequest } from "~/store/modules/user/actions";
+import { updateRequest, insertRequest } from "~/store/modules/training/actions";
 import { useIntl } from "react-intl";
 
 export default function FormLogin({
@@ -17,22 +16,29 @@ export default function FormLogin({
   const dispatch = useDispatch();
   const intl = useIntl();
   const formikRef = useRef(null);
+  let { profile } = useSelector((state: any) => state.user);
 
-  const [file, setFile] = useState(null);
-
+  const [file, setFile]: any = useState(null);
   function handleSubmit(values: any) {
-    // values = {
-    //   ...values,
-    //   email: values.email || values.email_register,
-    //   password: values.password || values.password_register,
-    // };
-    // if (children) {
-    //   dispatch(singInRequest(values.email, values.password));
-    // } else {
-    //   dispatch(
-    //     registerRequest(values.email, values.password, values.displayName)
-    //   );
-    // }
+    if (file !== null && file !== "") {
+      const data = new FormData();
+
+      let newData = {
+        ...initialValues,
+        ...values,
+      };
+
+      data.append("name", newData.name);
+      data.append("description", newData.description);
+      data.append("original_image", file);
+      data.append("userId", profile.id);
+
+      if (initialValues.name) {
+        dispatch(updateRequest(data, newData.id));
+      } else {
+        dispatch(insertRequest(data));
+      }
+    }
   }
 
   return (

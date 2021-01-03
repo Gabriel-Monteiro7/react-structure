@@ -2,14 +2,27 @@ import * as Yup from "yup";
 
 export const schema = [
   Yup.object().shape({
-    password_register: Yup.string().min(8,"login.field.min8").required("login.field.required"),
+    password_register: Yup.string()
+      .min(8, "login.field.min8")
+      .required("login.field.required"),
     email_register: Yup.string()
       .required("login.field.required")
       .email("login.field.email"),
-    displayName: Yup.string().required("login.field.required"),
+    displayName: Yup.string()
+      .required("login.field.required")
+      .strict(true)
+      .matches(/^\S*$/, "input.textfield.username"),
+    confirmPassword: Yup.string()
+      .oneOf(
+        [Yup.ref("password_register"), ""],
+        "input.textfield.confirmPassword"
+      )
+      .required("login.field.required"),
   }),
   Yup.object().shape({
-    password: Yup.string().min(8,"login.field.min8").required("login.field.required"),
+    password: Yup.string()
+      .min(8, "login.field.min8")
+      .required("login.field.required"),
     email: Yup.string()
       .required("login.field.required")
       .email("login.field.email"),
@@ -19,21 +32,27 @@ export const schema = [
 export const fields = [
   [
     {
-      placeholder: "Seu Nome",
-      label: "Nome",
+      placeholder: "Username",
+      label: "Username",
       name: "displayName",
     },
     {
-      placeholder: "Seu email",
-      label: "Email",
+      placeholder: "input.textfield.email.placeholder",
+      label: "input.textfield.email.label",
       name: "email_register",
       type: "email",
     },
     {
       icon: "visibility",
-      placeholder: "Sua senha",
-      label: "Senha",
+      placeholder: "input.textfield.password.placeholder",
+      label: "input.textfield.password.label",
       name: "password_register",
+    },
+    {
+      icon: "visibility",
+      placeholder: "input.textfield.confirmPassword.label",
+      label: "input.textfield.confirmPassword.label",
+      name: "confirmPassword",
     },
   ],
   [
@@ -59,6 +78,7 @@ export const initialValues = [
     email_register: "",
 
     password_register: "",
+    confirmPassword: "",
   },
   {
     email: "",

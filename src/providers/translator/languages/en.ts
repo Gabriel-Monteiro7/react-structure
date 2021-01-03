@@ -1,7 +1,8 @@
 export default {
   "homepage.title": "Home page",
-  "homepage.subscribeHeader": "Subscribe Now",
   "homepage.card.edit": "To edit",
+  "homepage.emptyPage": "No training set!",
+  "homepage.button.add.training": "Add new training",
   "button.top": "Go up",
   "optionMenu.button.logout": "Logout",
   "optionMenu.button.darkTheme": "Disable dark mode",
@@ -33,6 +34,17 @@ export default {
     "You have exceeded the maximum limit of 2mb. Try another file",
   "snackbar.erro.login.noCredentials":
     "No active accounts found with the supplied credentials",
-  "snackbar.erro.login.registerUSer": "Error when registering the user",
+  "snackbar.erro.login.registerUser": "Error when registering the user",
   "snackbar.loading.message": "Wait a moment...",
+  "snackbar.error.request": "Request error",
+  "snackbar.success.create.training": "Training successfully created!",
+  "snackbar.success.edited.training": "Training edited successfully!",
+  "snackbar.success.login.registerUser": "User created successfully!",
+  "input.textfield.username": "Username cannot have blank spaces",
+  "input.textfield.email.placeholder": "Your email",
+  "input.textfield.password.placeholder": "your password",
+  "input.textfield.email.label": "Email",
+  "input.textfield.password.label": "Password",
+  "input.textfield.confirmPassword.label": "Confirm password",
+  "input.textfield.confirmPassword": "Passwords do not match",
 };

@@ -1,17 +1,16 @@
 import styled from "styled-components";
 import SwipeableViews from "react-swipeable-views";
-import {
-  FiChevronDown,
-} from "react-icons/all";
+import { FiChevronDown } from "react-icons/all";
 import {
   Tabs as MuiTabs,
-  Tab as MuiTab, Paper,
+  Tab as MuiTab,
+  Paper,
   Typography,
   Switch as MuiSwitch,
-  IconButton as MuiIconButton
+  IconButton as MuiIconButton,
 } from "@material-ui/core";
 
-import { md, sm } from "~/styles/global";
+import { md, sm, defaultBar } from "~/styles/global";
 
 export const Container = styled.div`
   display: flex;
@@ -23,26 +22,24 @@ export const Container = styled.div`
 export const ContentTabs = styled(SwipeableViews)`
   padding: 30px 0px 0px;
   height: 100%;
-
-  
+  ${defaultBar(({ theme }: any) => theme.palette.grey[600], 6, 100, null)}
 `;
 export const Tabs = styled(MuiTabs).attrs({
   variant: "fullWidth",
   indicatorColor: "primary",
   textColor: "primary",
 })`
-  width:80%;
-  .MuiTabs-indicator{
-    background-color:${({ theme }) => theme.palette.secondary["A400"]} !important;
-
+  width: 80%;
+  .MuiTabs-indicator {
+    background-color: ${({ theme }) =>
+      theme.palette.secondary["A400"]} !important;
   }
 `;
 export const Tab = styled(MuiTab)`
-&.Mui-selected{
-  color: ${({ theme }) => theme.palette.secondary["A400"]} !important;
-}
-color: ${({ theme }) => theme.palette.primary.main} !important;
-
+  &.Mui-selected {
+    color: ${({ theme }) => theme.palette.secondary["A400"]} !important;
+  }
+  color: ${({ theme }) => theme.palette.primary.main} !important;
 `;
 export const Content = styled(Paper)`
   width: 478px;
@@ -74,29 +71,29 @@ export const ContainerItem = styled.div`
   flex: none;
   scroll-snap-align: start;
   width: 100%;
+  & {
+    height: 100%;
+  }
   form {
     margin: auto;
   }
 `;
 export const NewUser = styled(Typography)`
   margin: 10px auto 20px;
-  font-size:0.9rem;
+  font-size: 0.9rem;
   opacity: 0.9;
   cursor: pointer;
-  transition:0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   &:hover {
     opacity: 1;
   }
 `;
 
-export const Switch = styled(MuiSwitch)`
-
-`;
+export const Switch = styled(MuiSwitch)``;
 export const IconButton = styled(MuiIconButton)`
-  padding:4px !important;
-  svg{
-    font-size:1rem;
-
+  padding: 4px !important;
+  svg {
+    font-size: 1rem;
   }
 `;
 export const ArrowBack = styled(FiChevronDown)`

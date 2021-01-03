@@ -28,11 +28,16 @@ export const ContainerCard = styled(MuiGrid).attrs({
 })`
   min-height: 26rem;
 `;
-export const Image = styled.div`
+export const Image = styled.div<{
+  image: any
+}>`
   background-color: ${({ theme }) => theme.palette.grey["A400"] + 90};
+  background-image: ${({ image }) => image};
   height: 50%;
   width: 100%;
   border-radius: 4px 4px 0px 0px;
+  background-position: center;
+  background-size: cover;
 `;
 export const Card = styled(MuiCard).attrs({})`
   background: ${({ theme }) => theme.palette.background.paper};
@@ -105,7 +110,7 @@ export const ButtonAdd = styled(Button).attrs({
   color: "primary",
 })`
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   height: 42px;
   width: 220px;
   margin-top: 20px;

@@ -1,7 +1,8 @@
 export default {
   "homepage.title": "Página de inicio",
-  "homepage.subscribeHeader": "Subscribe Now",
   "homepage.card.edit": "Para editar",
+  "homepage.emptyPage": "¡Sin conjunto estándar!",
+  "homepage.button.add.training": "Agregar nueva formación",
   "button.top": "Subir",
   "optionMenu.button.logout": "Salir",
   "optionMenu.button.darkTheme": "Desactivar el modo oscuro",
@@ -33,6 +34,18 @@ export default {
     "Ha superado el límite máximo de 2 MB. Prueba con otro archivo",
   "snackbar.erro.login.noCredentials":
     "No se encontraron cuentas activas con las credenciales proporcionadas",
-  "snackbar.erro.login.registerUSer": "Error al dar de alta al usuario",
+  "snackbar.erro.login.registerUser": "Error al dar de alta al usuario",
   "snackbar.loading.message": "Espera un momento...",
+  "Solicitud de error": "Solicitud de error",
+  "snackbar.success.create.training": "¡Formación creada con éxito!",
+  "snackbar.success.edited.training": "¡Formación editado con éxito!",
+  "snackbar.success.login.registerUser": "¡Usuario creado con éxito!",
+  "input.textfield.username":
+    "El nombre de usuario no puede tener espacios en blanco",
+  "input.textfield.email.placeholder": "su e-mail",
+  "input.textfield.password.placeholder": "Su contraseña",
+  "input.textfield.email.label": "E-mail",
+  "input.textfield.password.label": "Contraseña",
+  "input.textfield.confirmPassword.label": "Confirme su contraseña",
+  "input.textfield.confirmPassword": "Las contraseñas no coinciden",
 };
