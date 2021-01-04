@@ -7,7 +7,7 @@ import {
   IconButton,
   Button,
 } from "@material-ui/core";
-import { FiEdit2 } from "react-icons/all";
+import { FiEdit2, FiX } from "react-icons/all";
 export const Container = styled.div``;
 export const Typography = styled(MuiTypography)``;
 export const ContainerCards = styled(MuiGrid).attrs({
@@ -28,11 +28,16 @@ export const ContainerCard = styled(MuiGrid).attrs({
 })`
   min-height: 26rem;
 `;
-export const Image = styled.div`
+export const Image = styled.div<{
+  image: any
+}>`
   background-color: ${({ theme }) => theme.palette.grey["A400"] + 90};
+  background-image: ${({ image }) => image};
   height: 50%;
   width: 100%;
   border-radius: 4px 4px 0px 0px;
+  background-position: center;
+  background-size: cover;
 `;
 export const Card = styled(MuiCard).attrs({})`
   background: ${({ theme }) => theme.palette.background.paper};
@@ -77,6 +82,37 @@ export const ButtonEdit = styled(IconButton)`
   bottom: 15px;
 `;
 export const IconEdit = styled(FiEdit2)``;
+export const IconDelete = styled(FiX)``;
+
+export const ButtonDelete = styled(IconButton)`
+  top: 0;
+  box-shadow: ${({ theme }) => theme.shadows[3]};
+  position: absolute;
+  right: -1px;
+  border-radius: 0;
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  width: 40px;
+  height: 40px;
+  background: ${({ theme }) => theme.palette.grey[600] + 90};
+  transition: 0.4s ease-in-out;
+  &:hover {
+    opacity: 0.8;
+    background: ${({ theme }) => theme.palette.error.main};
+  }
+  .MuiTouchRipple-root {
+    border: 0px;
+  }
+  .MuiIconButton-label {
+    font-size: 1rem;
+    top: 4px;
+    right: 3px;
+    position: absolute;
+    width: initial;
+    .svg {
+      stroke-width: 3px;
+    }
+  }
+`;
 
 export const Title = styled(MuiTypography).attrs({ variant: "h4" })`
   font-weight: 600;
@@ -105,7 +141,7 @@ export const ButtonAdd = styled(Button).attrs({
   color: "primary",
 })`
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   height: 42px;
   width: 220px;
   margin-top: 20px;

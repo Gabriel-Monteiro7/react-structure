@@ -1,6 +1,7 @@
 import filesize from "filesize";
 import React, { useState } from "react";
 import Dropzone from "react-dropzone";
+import { uniqueId } from "lodash";
 
 import {
   Container,
@@ -25,19 +26,21 @@ export default function File({ setFile }: any) {
 
   const [uploadedFiles, setUploadedFiles]: any = useState({});
   function handleUpload(file: any) {
-    setFile(file[0]);
+    const newFile = file[0];
+    setFile(newFile);
     setUploadedFiles({
-      file: file[0],
-      id: "0",
-      name: file[0].name,
-      readableSize: filesize(file[0].size),
-      preview: URL.createObjectURL(file[0]),
+      newFile,
+      id: uniqueId(),
+      name: newFile.name,
+      readableSize: filesize(newFile.size),
+      preview: URL.createObjectURL(newFile),
       progress: 0,
       uploaded: true,
       error: false,
       url: false,
     });
   }
+
   function handleDelete(id: any) {
     setUploadedFiles({});
     setFile(null);

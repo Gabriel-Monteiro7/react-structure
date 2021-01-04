@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 
 import { Container, Content, Typography, CircularProgress } from "./styles";
 
@@ -9,6 +9,7 @@ import { useIntl } from "react-intl";
 import {
   hidenSnackbar,
   processSnackbarQueue,
+  SnackbarRestart,
 } from "~/store/modules/root/actions";
 
 const SnackBar: React.FC = () => {
@@ -26,23 +27,31 @@ const SnackBar: React.FC = () => {
   const handleExited = () => {
     dispatch(processSnackbarQueue());
   };
-  return (
-    <Container
-      open={open}
-      onClose={handleClose}
-      onExit={handleExited}
-      key={current?.type + current?.message + remainder.length}
-    >
-      <Content
-        severity={current?.type}
-        color={current?.type}
-        icon={current?.type === "info" ? <CircularProgress /> : null}
+  useEffect(() => {
+    dispatch(SnackbarRestart());
+  }, []);
+  const renderSnackbar = () => {
+    return (
+      <Container
+        open={open}
+        onClose={handleClose}
+        onExit={handleExited}
+        key={current?.type + current?.message + remainder.length}
       >
-        <Typography variant={"body2"}>
-          {intl.formatMessage({ id: current?.message })}
-        </Typography>
-      </Content>
-    </Container>
-  );
+        {current?.message && (
+          <Content
+            severity={current?.type}
+            color={current?.type}
+            icon={current?.type === "info" ? <CircularProgress /> : null}
+          >
+            <Typography variant={"body2"}>
+              {intl.formatMessage({ id: current?.message })}
+            </Typography>
+          </Content>
+        )}
+      </Container>
+    );
+  };
+  return <>{renderSnackbar()}</>;
 };
 export default SnackBar;

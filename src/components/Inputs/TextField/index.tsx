@@ -16,6 +16,7 @@ export default function TextField({
   onChange,
   FormControlProps,
   label,
+  placeholder,
   ...props
 }: any) {
   const intl = useIntl();
@@ -40,11 +41,16 @@ export default function TextField({
       error={!!(meta.touched && meta.error)}
       {...FormControlProps}
     >
-      {label && <InputLabel shrink>{label}</InputLabel>}
+      {label && (
+        <InputLabel shrink>
+          {intl.formatMessage({ id: label || " " })}
+        </InputLabel>
+      )}
 
       <Input
         {...field}
         {...props}
+        placeholder={intl.formatMessage({ id: placeholder || " " })}
         onChange={handleChange}
         type={inputVisibility ? "text" : "password"}
         endAdornment={

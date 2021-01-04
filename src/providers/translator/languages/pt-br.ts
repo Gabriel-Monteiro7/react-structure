@@ -1,7 +1,8 @@
 export default {
   "homepage.title": "Página Inicial",
-  "homepage.subscribeHeader": "Subscribe Now",
   "homepage.card.edit": "Editar",
+  "homepage.emptyPage": "Nenhum treinamento definido!",
+  "homepage.button.add.training": "Adicionar novo treinamento",
   "button.top": "Ir para cima",
   "optionMenu.button.logout": "Sair",
   "optionMenu.button.darkTheme": "Desativar modo escuro",
@@ -33,6 +34,19 @@ export default {
     "Você excedeu o limite maximo de 2mb. Tente outro arquivo",
   "snackbar.erro.login.noCredentials":
     "Nenhuma conta ativa encontrada com as credenciais fornecidas",
-  "snackbar.erro.login.registerUSer": "Erro ao cadastrar o usuário",
+  "snackbar.erro.login.registerUser": "Erro ao cadastrar o usuário",
   "snackbar.loading.message": "Aguarde um momento...",
+  "snackbar.error.request": "Erro na requisição",
+  "snackbar.success.create.training": "Treinamento criado com sucesso!",
+  "snackbar.success.edited.training": "Treinamento editado com sucesso!",
+  "snackbar.success.deleted.training": "Treinamento deletado com sucesso!",
+  "snackbar.success.login.registerUser": "Usuário criado com sucesso!",
+  "input.textfield.username":
+    "O nome de usuário não pode ter espaços em branco",
+  "input.textfield.email.placeholder": "Seu email",
+  "input.textfield.password.placeholder": "Sua senha",
+  "input.textfield.email.label": "Email",
+  "input.textfield.password.label": "Senha",
+  "input.textfield.confirmPassword.label": "Confirme sua senha",
+  "input.textfield.confirmPassword": "As senhas não correspondem",
 };

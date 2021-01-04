@@ -18,10 +18,7 @@ function Register() {
 
   const initialValues = useMemo(() => {
     if (state) return { ...state };
-    return {
-      name: "",
-      description: "",
-    };
+    return {};
   }, [state]);
 
   return (

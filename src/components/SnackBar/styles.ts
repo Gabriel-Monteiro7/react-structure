@@ -12,7 +12,6 @@ export const Container = styled(Snackbar).attrs({
     horizontal: "right",
   },
   autoHideDuration: 2000,
-  resumeHideDuration: 2000,
 })``;
 export const Content = styled(Alert).attrs({ variant: "filled" })`
   align-items: center;
