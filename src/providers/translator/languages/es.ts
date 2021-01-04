@@ -1,8 +1,8 @@
 export default {
   "homepage.title": "Página de inicio",
   "homepage.card.edit": "Para editar",
-  "homepage.emptyPage": "¡Sin conjunto estándar!",
-  "homepage.button.add.training": "Agregar nueva formación",
+  "homepage.emptyPage": "¡Sin entrenamiento definido!",
+  "homepage.button.add.training": "Agregar nueva Entrenamiento",
   "button.top": "Subir",
   "optionMenu.button.logout": "Salir",
   "optionMenu.button.darkTheme": "Desactivar el modo oscuro",
@@ -37,8 +37,10 @@ export default {
   "snackbar.erro.login.registerUser": "Error al dar de alta al usuario",
   "snackbar.loading.message": "Espera un momento...",
   "Solicitud de error": "Solicitud de error",
-  "snackbar.success.create.training": "¡Formación creada con éxito!",
-  "snackbar.success.edited.training": "¡Formación editado con éxito!",
+  "snackbar.success.create.training": "¡Entrenamiento creada con éxito!",
+  "snackbar.success.edited.training": "¡Entrenamiento editado con éxito!",
+  "snackbar.success.deleted.training":
+    "¡Entrenamiento eliminado correctamente!",
   "snackbar.success.login.registerUser": "¡Usuario creado con éxito!",
   "input.textfield.username":
     "El nombre de usuario no puede tener espacios en blanco",

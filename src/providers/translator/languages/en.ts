@@ -39,6 +39,7 @@ export default {
   "snackbar.error.request": "Request error",
   "snackbar.success.create.training": "Training successfully created!",
   "snackbar.success.edited.training": "Training edited successfully!",
+  "snackbar.success.deleted.training": "Training deleted successfully!",
   "snackbar.success.login.registerUser": "User created successfully!",
   "input.textfield.username": "Username cannot have blank spaces",
   "input.textfield.email.placeholder": "Your email",

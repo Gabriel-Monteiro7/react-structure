@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getRequest } from "~/store/modules/training/actions";
+import { getRequest, deleteRequest } from "~/store/modules/training/actions";
 
 import {
   Container,
@@ -19,6 +19,8 @@ import {
   EmptyContainer,
   EmptyTitle,
   ButtonAdd,
+  ButtonDelete,
+  IconDelete,
 } from "./styles";
 
 import EmptyImage from "~/assets/images/empty.png";
@@ -49,7 +51,13 @@ function Home({ openSnackbar }: any) {
           >
             <Date>{formatDateDefault(training.created_at)}</Date>
           </Tooltip>
-
+          <ButtonDelete
+            onClick={() => {
+              dispatch(deleteRequest(training.id));
+            }}
+          >
+            <IconDelete />
+          </ButtonDelete>
           <Image image={image} />
           <ContainerInformation>
             <TitleCard>{training.name}</TitleCard>

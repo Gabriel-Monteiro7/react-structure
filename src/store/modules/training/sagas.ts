@@ -73,12 +73,23 @@ export function* deletetraining({ payload }: any) {
   let { id } = payload;
   const { token }: any = yield select((state: any) => state.auth);
   try {
-    yield put(showSnackbar("info"));
+    yield put(
+      showSnackbar({
+        type: "info",
+        message: "snackbar.loading.message",
+        loading: true,
+      })
+    );
     yield call(service.delete, `training/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     yield put(deleteSuccess(id));
-    yield put(showSnackbar("success"));
+    yield put(
+      showSnackbar({
+        type: "success",
+        message: "snackbar.success.deleted.training",
+      })
+    );
   } catch (erro) {
     yield put(
       showSnackbar({ type: "error", message: "snackbar.error.request" })
