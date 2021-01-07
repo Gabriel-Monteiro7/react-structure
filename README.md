@@ -3,7 +3,6 @@
  <strong>React Structure ⚛️ </strong> 
 </h1>
  
- 
 <p align="center">
    <a href="https://www.linkedin.com/in/gabriel-monteiro-978aa8189/">
       <img alt="Gabriel Monteiro" src="https://img.shields.io/badge/-GabrielMonteiro-4e6aff?style=flat&logo=Linkedin&logoColor=white"/>
@@ -35,6 +34,24 @@
 
 ## 📕 Informações
 
+### Preview da aplicação
+
+![Preview](https://github.com/Gabriel-Monteiro7/react-structure/blob/master/.github/preview.gif)
+
+### Tela de Login
+
+![Login](https://github.com/Gabriel-Monteiro7/react-structure/blob/master/.github/login.png)	
+
+### Tela de Dashboard
+
+![Dashboard](https://github.com/Gabriel-Monteiro7/react-structure/blob/master/.github/dashboard.png)
+
+### Tela de Registro
+
+![Register](https://github.com/Gabriel-Monteiro7/react-structure/blob/master/.github/register.png)
+
+
+Essa projeto possui apenas a parte do Front-End, utilizei um api feita em Django que é bem parecida com essa: [Api Django](https://github.com/Gabriel-Monteiro7/DjangoAPi). Muda apenas as entidades, mas daria pra utilizar também.
 
 ## 🚀 Execução
 ```
@@ -53,9 +70,9 @@
 # Roda na porta 3000
 ```
 
-## 🐛 Problemas
+## 🐛 Comentários
 
-Sinta-se a vontade de registrar um novo problema, com um respectivo título e descrição no repositório do [ReactStructure](https://github.com/Gabriel-Monteiro7/react-structure/issues). Se encontrar a solução, avaliarei seu Pull Request.
+Como falei mais em cima, esse é um projeto pessoal e direcionado para aplicações React com o Redux Saga, que contem desde a aplicação de uma Autenticação, Thema Dark mode com o Material IU, Internacionalização e etc... É para ser apenas uma base de projeto e esta longe de ser um projeto perfeito. Então, desde já sinta-se a vontade para registrar um novo problema, com um respectivo título e descrição no repositório do [ReactStructure](https://github.com/Gabriel-Monteiro7/react-structure/issues).
 
 ## 👨‍💻 [](<[https://github.com/Gabriel-Monteiro7/react-structure](https://github.com/Gabriel-Monteiro7/react-structure)#autor>)Autor
 
