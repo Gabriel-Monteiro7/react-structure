@@ -1,46 +1,64 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+ <strong>React Structure ⚛️ </strong> 
+</h1>
+ 
+ 
+<p align="center">
+   <a href="https://www.linkedin.com/in/gabriel-monteiro-978aa8189/">
+      <img alt="Gabriel Monteiro" src="https://img.shields.io/badge/-GabrielMonteiro-4e6aff?style=flat&logo=Linkedin&logoColor=white"/>
+   </a>
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Gabriel-Monteiro7/react-structure?color=4e6aff">
+  <a href="https://github.com/Gabriel-Monteiro7/react-structure/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Gabriel-Monteiro7/react-structure?color=4e6aff">
+  </a> 
+  <a href="https://github.com/Josuebmota/SchoolSystem/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-4e6aff">
+  </a>
+  <a href="https://github.com/Gabriel-Monteiro7/react-structure/stargazers"><img alt="Stargazers" src="https://img.shields.io/github/stars/Gabriel-Monteiro7/react-structure?color=4e6aff&logo=github">
+  </a>
+</p>
 
-## Available Scripts
 
-In the project directory, you can run:
+> Esse é apenas um projeto pessoal com o intuito de montar uma estrutura padrão de React junto com Redux saga para ser reutilizado em outros projetos. :grin:
 
-### `yarn start`
+## 📌 Tecnologias e Ferramentas Usadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- :atom_symbol:  **React Js(Ts)** — Uma biblioteca Javascript para construção de interfaces.
+- :atom_symbol: **Redux Saga** — Biblioteca que foca em fazer os efeitos colaterais em aplicações serem mais fáceis e simples de se criar e manter.
+- :atom_symbol:  **React Toastify** — Permite adicionar notificações ao seu aplicativo com facilidade.
+- :atom_symbol:  **React Router Dom** — Roteamento e navegação para aplicações  que utilizam React Js.
+- :nail_care:  **Styled Components** — Tecnologia para componentizar estilização CSS no React através do Javascript.
+-   :lock:  **Yup** — É um construtor de esquema JavaScript para análise e validação de valor.
+-   :page_facing_up:  **Formik** — É a biblioteca de formulários de código aberto mais popular do mundo para React e React Native.
+- :diamond_shape_with_a_dot_inside:  **Material UI** — Biblioteca de componentes React para um desenvolvimento ágil e fácil.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## 📕 Informações
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## 🚀 Execução
+```
+# Clone o repositório
+	git clone https://github.com/Gabriel-Monteiro7/react-structure.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Vá para o diretório do arquivo
+	cd react-structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Instale as dependências
+	yarn 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Inicie o servidor do frontEnd
+	yarn start
 
-### `yarn eject`
+# Roda na porta 3000
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🐛 Problemas
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Sinta-se a vontade de registrar um novo problema, com um respectivo título e descrição no repositório do [ReactStructure](https://github.com/Gabriel-Monteiro7/react-structure/issues). Se encontrar a solução, avaliarei seu Pull Request.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 👨‍💻 [](<[https://github.com/Gabriel-Monteiro7/react-structure](https://github.com/Gabriel-Monteiro7/react-structure)#autor>)Autor
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Criado por [**Gabriel Monteiro** ](https://github.com/Gabriel-Monteiro7), <br>esse projeto está sobre [MIT license](./LICENSE) 📃.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Coloque uma ⭐️ caso esse projeto tenha lhe servido para algo.
