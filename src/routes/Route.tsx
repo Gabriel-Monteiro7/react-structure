@@ -4,14 +4,13 @@ import { Route, Redirect } from "react-router-dom";
 import DefaultLayout from "~/layouts/default";
 import AuthLayout from "~/layouts/auth";
 import SnackBar from "~/components/SnackBar";
+import Modal from "~/components/Modal";
 
 import { Theme } from "~/theme";
 import { Translator } from "~/providers/translator";
 
 import { store } from "~/store";
 import history from "~/service/history";
-
-
 
 function RouteWrapper({
   component: Component,
@@ -40,6 +39,7 @@ function RouteWrapper({
           </Layout>
         )}
       />
+      <Modal />
       <SnackBar />
     </>
   );

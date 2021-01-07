@@ -1,4 +1,5 @@
 export default {
+  "register.title": "Registration page",
   "homepage.title": "Home page",
   "homepage.card.edit": "To edit",
   "homepage.emptyPage": "No training set!",
@@ -48,4 +49,8 @@ export default {
   "input.textfield.password.label": "Password",
   "input.textfield.confirmPassword.label": "Confirm password",
   "input.textfield.confirmPassword": "Passwords do not match",
+  "modal.button.cancel": "Cancel",
+  "modal.button.delete": "Delete",
+  "modal.deleteTraining.title": "Do you really want to delete this training?",
+  "modal.deleteTraining.text1": "Once deleted, there is no way to recover!",
 };

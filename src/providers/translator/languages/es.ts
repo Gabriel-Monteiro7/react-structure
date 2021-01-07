@@ -1,4 +1,5 @@
 export default {
+  "register.title": "Página de registro",
   "homepage.title": "Página de inicio",
   "homepage.card.edit": "Para editar",
   "homepage.emptyPage": "¡Sin entrenamiento definido!",
@@ -50,4 +51,9 @@ export default {
   "input.textfield.password.label": "Contraseña",
   "input.textfield.confirmPassword.label": "Confirme su contraseña",
   "input.textfield.confirmPassword": "Las contraseñas no coinciden",
+  "modal.button.cancel": "Cancelar",
+  "modal.button.delete": "Eliminar",
+  "modal.deleteTraining.title": "¿Realmente desea eliminar esta formación?",
+  "modal.deleteTraining.text1":
+    "Una vez eliminado, ¡no hay forma de recuperarlo!",
 };

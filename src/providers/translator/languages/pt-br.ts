@@ -1,4 +1,5 @@
 export default {
+  "register.title": "Página de cadastro",
   "homepage.title": "Página Inicial",
   "homepage.card.edit": "Editar",
   "homepage.emptyPage": "Nenhum treinamento definido!",
@@ -49,4 +50,9 @@ export default {
   "input.textfield.password.label": "Senha",
   "input.textfield.confirmPassword.label": "Confirme sua senha",
   "input.textfield.confirmPassword": "As senhas não correspondem",
+  "modal.button.cancel": "Cancelar",
+  "modal.button.delete": "Deletar",
+  "modal.deleteTraining.title":
+    "Você realmente deseja deletar esse treinamento?",
+  "modal.deleteTraining.text1": "Depois de excluido não tem como recuperar!",
 };

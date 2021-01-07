@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getRequest, deleteRequest } from "~/store/modules/training/actions";
+import { showModal } from "~/store/modules/root/actions";
 
 import {
   Container,
@@ -33,6 +34,8 @@ function Home({ openSnackbar }: any) {
   const intl = useIntl();
   const dispatch = useDispatch();
   const { trainings } = useSelector((state: any) => state.training);
+  const root = useSelector((state: any) => state.root);
+  console.log(root);
 
   useEffect(() => {
     dispatch(getRequest());
@@ -53,15 +56,15 @@ function Home({ openSnackbar }: any) {
           </Tooltip>
           <ButtonDelete
             onClick={() => {
-              dispatch(deleteRequest(training.id));
+              dispatch(showModal("deleteTraining", training));
             }}
           >
             <IconDelete />
           </ButtonDelete>
           <Image image={image} />
           <ContainerInformation>
-            <TitleCard>{training.name}</TitleCard>
-            {formatText(training.description, DescriptionCard, 80)}
+            {formatText(training.name, TitleCard,30)}
+            {formatText(training.description, DescriptionCard, 70)}
           </ContainerInformation>
           <Tooltip
             aria-label={intl.formatMessage({ id: "homepage.card.edit" })}
