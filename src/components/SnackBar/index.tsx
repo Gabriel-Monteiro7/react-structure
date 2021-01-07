@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useIntl } from "react-intl";
 
 import {
-  hidenSnackbar,
+  hiddenSnackbar,
   processSnackbarQueue,
   SnackbarRestart,
 } from "~/store/modules/root/actions";
@@ -22,7 +22,7 @@ const SnackBar: React.FC = () => {
     if (reason === "clickaway" || current?.loading) {
       return;
     }
-    dispatch(hidenSnackbar());
+    dispatch(hiddenSnackbar());
   };
   const handleExited = () => {
     dispatch(processSnackbarQueue());

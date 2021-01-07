@@ -1,7 +1,6 @@
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { Tooltip } from "@material-ui/core";
-
+import { Tooltip } from "./styles";
 export const { format: formatPrice } = new Intl.NumberFormat("pt-BR", {
   style: "currency",
   currency: "BRL",

@@ -23,7 +23,7 @@ function Register() {
 
   return (
     <Container>
-      <Title>{"Register"}</Title>
+      <Title>{intl.formatMessage({ id: "register.title" })}</Title>
       <Form
         schema={schema}
         fields={fields}
