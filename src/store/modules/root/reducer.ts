@@ -9,6 +9,10 @@ const INITIAL_STATE = {
     current: null,
     remainder: [],
   },
+  modal: {
+    open: false,
+    type: null,
+  },
 };
 
 export default function root(state = INITIAL_STATE, action: any) {
@@ -28,11 +32,11 @@ export default function root(state = INITIAL_STATE, action: any) {
         draft.languages = action.payload.languages;
         break;
       }
-      case "@root/SHOW_SNACK_BAR": {        
+      case "@root/SHOW_SNACK_BAR": {
         draft.snackbar.remainder.push(action.payload.snackbar);
         break;
       }
-      case "@root/HIDEN_SNACK_BAR": {
+      case "@root/HIDDEN_SNACK_BAR": {
         draft.snackbar.open = false;
         break;
       }
@@ -50,7 +54,18 @@ export default function root(state = INITIAL_STATE, action: any) {
         draft.snackbar = INITIAL_STATE.snackbar;
         break;
       }
-
+      case "@root/SHOW_MODAL": {
+        draft.modal = {
+          open: true,
+          type: action.payload.type,
+          element: action.payload.element,
+        };
+        break;
+      }
+      case "@root/HIDDEN_MODAL": {
+        draft.modal = { open: false, type: null };
+        break;
+      }
       default:
     }
   });

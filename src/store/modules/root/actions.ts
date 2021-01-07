@@ -27,9 +27,9 @@ export function showSnackbar(snackbar: any) {
     payload: { snackbar },
   };
 }
-export function hidenSnackbar() {
+export function hiddenSnackbar() {
   return {
-    type: "@root/HIDEN_SNACK_BAR",
+    type: "@root/HIDDEN_SNACK_BAR",
   };
 }
 export function processSnackbarQueue() {
@@ -41,5 +41,17 @@ export function processSnackbarQueue() {
 export function SnackbarRestart() {
   return {
     type: "@root/SNACKBAR_RESTART",
+  };
+}
+
+export function showModal(type: any, element: any = undefined) {
+  return {
+    type: "@root/SHOW_MODAL",
+    payload: { type, element },
+  };
+}
+export function hiddenModal() {
+  return {
+    type: "@root/HIDDEN_MODAL",
   };
 }
